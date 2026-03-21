@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link href='https://fonts.googleapis.com' rel='stylesheet'>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jason Robinson's Janus Ensemble, Inc | Official Site</title>
+    <style>
+        * { box-sizing: border-box; }
+        body { 
+            font-family: 'GFS Didot', serif; 
+            line-height: 1.6; 
+            color: #333; 
+            max-width: 800px; 
+            margin: 0 auto; 
+            padding: 20px;
+        }
+
+        header { text-align: left; margin-bottom: 40px; }
+        header p { font-style: none; color: #555; margin-top: 20px; margin-bottom: 20px;}
+        header img { max-width: 100%; height: auto; display: block; margin: 0 auto; }
+
+        h2 { border-bottom: 1px solid #333; padding-bottom: 10px; margin-top: 40px; }
+
+main {
+}
+
+footer {
+    margin-top: 60px;
+    padding-top: 20px;
+    border-top: 1px solid #333;
+    p {text-align: right}
+}
+
+.footer-content {
+    display: flex;
+    flex-direction: column;      /* Stacks text and image vertically */
+    align-items: flex-end;       /* Aligns everything to the right side */
+    gap: -10px;                   /* Adds space between the text and the image */
+    width: 100%;
+}
+
+.footer-logo {
+    width: 200px;
+    height: auto;
+}
+        
+        /* Removes the default link color and blue underline */
+a {
+    color: inherit;            /* Matches the color of the text around it */
+    text-decoration: underline; /* Keeps the underline so users know it's a link */
+    text-decoration-thickness: 1px; /* Optional: makes the underline thinner */
+    text-underline-offset: 3px;     /* Optional: adds space between text and underline */
+}
+
+/* Optional: Add a subtle effect when hovering so the user knows it's interactive */
+a:hover {
+    color: #555;                /* Darkens slightly on hover for feedback */
+    text-decoration: underline;
+}
+
+        
+        /* List readability */
+        ul { list-style: none; padding: 0; }
+        li { padding: 8px 0; border-bottom: 1px solid #eee; }
+
+        footer { 
+            margin-top: 60px; 
+            padding-top: 20px; 
+            border-top: 1px solid #333; 
+            text-align: center; 
+            font-size: 0.9em; 
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <img src="https://jasonrobinson897.github.io/circumventionmusic/Circumvention-Music-b&w-large_edited_edited.png" alt="Circumvention Music Logo">
+        <p>Circumvention Music is an artist-run independent record label dedicated to presenting original music by visionary musicians. Founded in 1998 by saxophonist and composer <a href="https://www.jasonrobinson.com">Jason Robinson</a>, the label serves as a platform for artists to own and control all aspects of their music releases.</p>
+    </header>
+
+    <main>
+        <h2>Catalog</h2>
+        <ul id="release-list">
+            <li>Loading releases...</li>
+        </ul>
+    </main>
+
+   <footer>
+    <div class="footer-content">
+        <img src="https://jasonrobinson897.github.io/circumventionmusic/Circumvention-Music-b&w-large_edited_edited.png" alt="Circumvention Music Logo" class="footer-logo">
+        <p>Contact: info [at] janusensemble [dawt] org<br>
+        &copy; <script>document.write(new Date().getFullYear());</script>, Jason Robinson's Janus Ensemble, Inc. All rights reserved.</p>
+    </div>
+</footer>
+
+    <script>
+        // Fetches data from your JSON file and builds the list
+        fetch('releases.json')
+            .then(response => response.json())
+            .then(data => {
+                const list = document.getElementById('release-list');
+                list.innerHTML = ''; // Clear the "Loading..." text
+                data.forEach(item => {
+                    const li = document.createElement('li');
+                    li.innerHTML = `${item.artist}, <a href="${item.link}"><em>${item.album}</em></a> (${item.release_year}), ${item.cat_no}`;
+                    list.appendChild(li);
+                });
+            })
+            .catch(error => {
+                console.error('Error loading releases:', error);
+                document.getElementById('release-list').innerHTML = '<li>Unable to load releases.</li>';
+            });
+    </script>
+</body>
+</html>
