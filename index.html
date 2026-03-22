@@ -13,7 +13,7 @@
         
         :root {
             --navy: #002d56;
-            --navy-trans: rgba(0, 45, 86, 0.85); /* 85% transparency */
+            --navy-trans: rgba(0, 45, 86, 0.85); 
             --gold: #b5a478;
             --cream: #fdfcf8;
         }
@@ -24,7 +24,7 @@
             color: #000000; 
             max-width: 800px; 
             margin: 0 auto; 
-            padding: 0 0 40px 0; /* Flush sides, space at bottom */
+            padding: 0 0 40px 0;
             min-height: 100vh;
             background: 
                 linear-gradient(rgba(255, 252, 248, 0.9), rgba(255, 252, 248, 0.9)),
@@ -35,36 +35,35 @@
             background-attachment: fixed;
         }
         
-        /* --- Banner Header --- */
-        .main-header {
-            position: relative;
+        /* --- The Fixed-Width Banner Container --- */
+        .banner-container {
+            position: relative; /* This allows us to "pin" things inside it */
             width: 100%;
-            min-height: 350px; 
-            background: url('https://jasonrobinson897.github.io/janusensemble/banner_image.png');
-            background-size: cover;
-            background-position: center;
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-            border-bottom: 5px solid var(--navy);
+            max-width: 800px;
             margin-bottom: 30px;
+            border-bottom: 5px solid var(--navy);
+            overflow: hidden; /* Keeps the nav bar from spilling out */
         }
 
-        .header-inner {
-            padding: 30px;
+        .banner-img {
+            width: 100%;
+            height: auto;
+            display: block; /* Removes white space at bottom of image */
+        }
+
+        /* --- Overlay Elements --- */
+        .logo-overlay {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+        }
+
+        .logo-overlay a {
             display: flex;
-            flex-direction: column;
-            height: 100%;
-            justify-content: space-between;
-            flex-grow: 1;
-        }
-
-        .logo-text a {
-            display: inline-flex;
             flex-direction: column;
             text-decoration: none;
             color: white;
-            text-shadow: 2px 2px 8px rgba(0,0,0,0.7); /* Deep shadow for legibility */
+            text-shadow: 2px 2px 8px rgba(0,0,0,0.8);
             line-height: 1.1;
         }
 
@@ -81,10 +80,11 @@
             letter-spacing: 3px;
         }
 
-        /* Nav Bar at bottom right */
+        /* Nav Bar Pinned to Bottom Right */
         .nav-container {
-            align-self: flex-end;
-            margin-top: auto;
+            position: absolute;
+            bottom: 0;
+            right: 0;
         }
 
         .nav-menu {
@@ -92,7 +92,7 @@
             list-style: none;
             gap: 20px;
             margin: 0;
-            padding: 12px 20px;
+            padding: 12px 25px;
             background: var(--navy-trans);
             border-radius: 4px 0 0 0;
         }
@@ -101,7 +101,7 @@
             text-decoration: none;
             color: white;
             font-weight: 700;
-            font-size: 0.9rem;
+            font-size: 0.85rem;
             text-transform: uppercase;
             letter-spacing: 1.5px;
             transition: color 0.3s ease;
@@ -114,93 +114,53 @@
         .btn-support {
             border: 1px solid white;
             padding: 4px 10px;
-            margin-left: 5px;
         }
 
         /* --- Content Area --- */
-        main {
-            padding: 0 20px;
-        }
+        main { padding: 0 20px; }
 
         h2 { 
             border-bottom: 1px solid var(--navy); 
             padding-bottom: 10px; 
             margin-top: 40px; 
             text-transform: uppercase; 
-            letter-spacing: 2px;
             color: var(--navy);
         }
 
         ul#release-list { list-style: none; padding: 0; }
-        ul#release-list li { 
-            padding: 15px 0; 
-            border-bottom: 1px solid #ddd; 
-            font-size: 1rem;
-        }
+        ul#release-list li { padding: 15px 0; border-bottom: 1px solid #ddd; }
 
         /* --- Footer --- */
-        footer {
-            margin-top: 80px;
-            padding: 20px;
-            border-top: 1px solid var(--navy);
-        }
-
-        .footer-content {
-            display: flex;
-            flex-direction: column;
-            align-items: flex-end;
-        }
-
-        .footer-logo {
-            width: 160px;
-            height: auto;
-            margin-bottom: 15px;
-            filter: grayscale(1); /* Keeps it classy/minimal */
-        }
-
-        .footer-content p {
-            text-align: right;
-            font-size: 0.8rem;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            color: #666;
-        }
+        footer { margin-top: 80px; padding: 20px; border-top: 1px solid var(--navy); }
+        .footer-content { display: flex; flex-direction: column; align-items: flex-end; }
+        .footer-logo { width: 160px; height: auto; margin-bottom: 15px; }
+        .footer-content p { text-align: right; font-size: 0.8rem; text-transform: uppercase; color: #666; }
 
         /* --- Mobile Styles --- */
         .menu-toggle { display: none; }
 
         @media (max-width: 768px) {
-            .main-header { min-height: 250px; }
             .logo-bottom { font-size: 1.6rem; }
             
             .menu-toggle { 
                 display: block; 
-                align-self: flex-end;
                 background: var(--navy);
                 padding: 12px;
                 border: none;
                 cursor: pointer;
             }
-            .menu-toggle span {
-                display: block;
-                width: 22px;
-                height: 2px;
-                background: white;
-                margin: 5px 0;
-            }
+            .menu-toggle span { display: block; width: 22px; height: 2px; background: white; margin: 5px 0; }
 
             .nav-menu {
                 display: none;
                 flex-direction: column;
                 position: absolute;
-                top: 100%;
-                left: 0;
-                width: 100%;
+                bottom: 100%; /* Drops UP if at the bottom, or stays relative */
+                right: 0;
+                width: 200px; /* Thinner mobile menu */
                 background: var(--navy);
-                text-align: center;
-                padding: 30px 0;
-                border-radius: 0;
-                z-index: 1001;
+                text-align: right;
+                padding: 20px;
             }
             .nav-menu.active { display: flex; }
             .nav-menu li { margin: 10px 0; }
@@ -209,29 +169,29 @@
 </head>
 <body>
 
-<header class="main-header">
-    <div class="header-inner">
-        <div class="logo-text">
-            <a href="index.html">
-                <span class="logo-top">Jason Robinson's</span>
-                <span class="logo-bottom">Janus Ensemble</span>
-            </a>
-        </div>
+<header class="banner-container">
+    <img src="https://jasonrobinson897.github.io/janusensemble/banner_image.png" alt="Janus Ensemble Banner" class="banner-img">
 
-        <nav class="nav-container">
-            <button class="menu-toggle" id="mobile-menu-button" aria-label="Toggle Menu">
-                <span></span>
-                <span></span>
-                <span></span>
-            </button>
-            <ul class="nav-menu" id="nav-list">
-                <li><a href="index.html">Home</a></li>
-                <li><a href="about.html">About</a></li>
-                <li><a href="contact.html">Contact</a></li>
-                <li><a href="support.html" class="btn-support">Support</a></li>
-            </ul>
-        </nav>
+    <div class="logo-overlay">
+        <a href="index.html">
+            <span class="logo-top">Jason Robinson's</span>
+            <span class="logo-bottom">Janus Ensemble</span>
+        </a>
     </div>
+
+    <nav class="nav-container">
+        <button class="menu-toggle" id="mobile-menu-button" aria-label="Toggle Menu">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+        <ul class="nav-menu" id="nav-list">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="contact.html">Contact</a></li>
+            <li><a href="support.html" class="btn-support">Support</a></li>
+        </ul>
+    </nav>
 </header>
 
 <main>
@@ -252,7 +212,6 @@
 </footer>
 
 <script>
-    // Load Releases from JSON
     fetch('releases.json')
         .then(res => res.json())
         .then(data => {
@@ -267,7 +226,6 @@
             document.getElementById('release-list').innerHTML = '<li>Unable to load catalog.</li>';
         });
 
-    // Mobile Navigation Logic
     const toggle = document.getElementById('mobile-menu-button');
     const menu = document.getElementById('nav-list');
     toggle.addEventListener('click', () => {
