@@ -106,6 +106,35 @@ main {
     margin-top: 0;
 }
 
+/* --- Custom Styled Lists --- */
+.content-card ul {
+    list-style: none; /* Removes default bullets */
+    padding-left: 0;
+}
+
+.content-card li {
+    position: relative;
+    padding-left: 25px;
+    margin-bottom: 15px;
+    line-height: 1.5;
+}
+
+/* Creates a custom Gold square bullet */
+.content-card li::before {
+    content: "■"; 
+    position: absolute;
+    left: 0;
+    color: var(--gold);
+    font-size: 0.8rem;
+    top: 2px;
+}
+
+.content-card li strong {
+    color: var(--navy);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
 h2 { 
     border-bottom: 1px solid var(--navy); 
     padding-bottom: 10px; 
