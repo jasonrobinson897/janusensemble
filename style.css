@@ -108,6 +108,7 @@ main {
 
 /* Forces both columns to be exactly the same width */
 .column {
+    background: transparent;
     flex: 1;
     width: 50%; 
 }
