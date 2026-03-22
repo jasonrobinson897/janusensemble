@@ -102,6 +102,10 @@ main {
     margin-bottom: 25px;
 }
 
+.content-card p:first-of-type {
+    margin-top: 0;
+}
+
 h2 { 
     border-bottom: 1px solid var(--navy); 
     padding-bottom: 10px; 
