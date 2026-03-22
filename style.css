@@ -297,6 +297,21 @@ h3 {
     margin-bottom: 10px;
 }
 
+.img-center {
+    display: block;
+    margin: 20px auto;   /* Centers the image and adds vertical spacing */
+    max-width: 100%;     /* Crucial: Prevents image from being wider than the screen */
+    width: 400px;        /* Sets a preferred size for desktop */
+    height: auto;        /* Maintains the original aspect ratio */
+}
+
+/* Mobile Adjustment */
+@media (max-width: 600px) {
+    .img-center-full {
+        width: 100%;     /* On phones, let it take up the full available width */
+        margin: 15px auto;
+    }
+}
 
 .clearfix::after {
     content: "";
