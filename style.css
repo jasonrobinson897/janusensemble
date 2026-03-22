@@ -205,6 +205,12 @@ footer {
     border-radius: 8px;
     border: 1px solid rgba(0, 0, 0, 0.05);
 }
+footer p {
+    font-size: 0.75rem;      /* Makes the text smaller */
+    color: #666;             /* Optional: dims the color slightly for a cleaner look */
+    letter-spacing: 0.5px;   /* Optional: adds a bit of air between letters */
+    margin: 10px 0 0 0;      /* Adds a little space above the text */
+}
 .footer-content { display: flex; flex-direction: column; align-items: flex-end; }
 .footer-logo { width: 160px; height: auto; margin-bottom: -10px; }
 
