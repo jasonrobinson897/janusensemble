@@ -94,6 +94,32 @@ main {
     padding: 0 0px; 
 }
 
+/* Container for the two columns */
+.two-column-row {
+    display: flex;
+    display: -webkit-flex; /* Browser compatibility */
+    align-items: center;    /* Vertically centers content in both columns */
+    gap: 40px;              /* The gutter/space between columns */
+    width: 100%;
+}
+
+/* Forces both columns to be exactly the same width */
+.column {
+    flex: 1;
+    width: 50%; 
+}
+
+/* Responsive: Stacks columns on screens smaller than 768px */
+@media (max-width: 768px) {
+    .two-column-row {
+        flex-direction: column;
+        text-align: center;
+    }
+    .column {
+        width: 100%;
+    }
+}
+
 /* --- Mission Row Layout --- */
 .mission-row {
     display: flex;
