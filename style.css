@@ -184,7 +184,9 @@ h2 {
     margin-bottom: 15px;
 }
 .img-center {
-    align-items: center;
+    display: block;       /* Forces the image to be its own block */
+    margin-left: auto;    /* Pushes from the left */
+    margin-right: auto;   /* Pushes from the right */
     max-width: 600px;
     width: 100%; 
     height: auto;
