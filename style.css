@@ -109,6 +109,12 @@ main {
     width: 50%; 
 }
 
+.column img {
+    max-width: 100%;    /* This is the key: it can't get wider than the column */
+    height: auto;       /* Maintains the aspect ratio */
+    display: block;
+}
+
 /* Responsive: Stacks columns on screens smaller than 768px */
 @media (max-width: 768px) {
     .two-column-row {
