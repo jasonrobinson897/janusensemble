@@ -96,6 +96,9 @@ main {
 
 /* Container for the two columns */
 .two-column-row {
+    background: rgba(255, 255, 255, 0);
+    padding: 0px;
+    border-radius: 0px;
     display: flex;
     display: -webkit-flex; /* Browser compatibility */
     align-items: center;    /* Vertically centers content in both columns */
