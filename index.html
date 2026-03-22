@@ -42,6 +42,7 @@
             min-height: 200px; 
             margin-bottom: 30px;
             border-bottom: 1px solid #ddd;
+            /* Overflow hidden is removed on mobile via media query below */
             overflow: hidden; 
         }
 
@@ -112,13 +113,19 @@
         .menu-toggle { display: none; }
 
         @media (max-width: 768px) {
+            .banner-container { overflow: visible; } /* CRITICAL: Allows menu to be seen */
+            
+            .nav-container {
+                right: 10px; /* Moves toggle button slightly off the edge */
+                bottom: 10px;
+            }
+
             .menu-toggle { 
                 display: block; 
                 background: #000; 
                 padding: 10px;
                 border: none;
                 cursor: pointer;
-                margin: 10px;
             }
             .menu-toggle span { display: block; width: 22px; height: 2px; background: white; margin: 5px 0; }
 
@@ -126,16 +133,33 @@
                 display: none;
                 flex-direction: column;
                 position: absolute;
-                bottom: 100%;
-                right: 0;
-                width: 100%;
-                background: rgba(255,255,255,0.95); 
+                top: 100%; /* Sits exactly below the toggle button */
+                left: auto;
+                right: -10px; /* Aligns dropdown with edge of banner */
+                width: 100vw; /* Spans full width of screen */
+                max-width: 800px;
+                background: rgba(255,255,255,0.98); 
                 text-align: center;
-                padding: 20px;
+                padding: 30px 0;
                 border-top: 1px solid #ddd;
+                box-shadow: 0 10px 15px rgba(0,0,0,0.1);
             }
+            
             .nav-menu.active { display: flex; }
-            .nav-menu li { margin: 10px 0; }
+            .nav-menu li { 
+                margin: 15px 0; 
+                width: 100%; 
+            }
+            .nav-menu a {
+                display: block;
+                width: 100%;
+                text-shadow: none; /* Cleaner look on solid background */
+            }
+            /* Centers the support button on mobile */
+            .btn-support {
+                display: inline-block;
+                width: auto;
+            }
         }
     </style>
 </head>
