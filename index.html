@@ -12,10 +12,12 @@
         * { box-sizing: border-box; }
         
         :root {
-            /* Kept the colors for the content and footer */
             --navy: #002d56;
             --gold: #b5a478;
             --cream: #fdfcf8;
+            /* Adjust this variable to change the transparency of the banner image */
+            /* 0.0 = fully clear, 1.0 = fully white */
+            --banner-transparency: 0.3; 
         }
 
         body { 
@@ -35,15 +37,27 @@
             background-attachment: fixed;
         }
         
-        /* --- Banner Container --- */
+        /* --- Banner Container with Transparency Filter --- */
         .banner-container {
             position: relative; 
             width: 100%;
             max-width: 800px;
             margin-bottom: 30px;
-            /* Border removed as requested, keeping a subtle line for structure */
             border-bottom: 1px solid #ddd;
             overflow: hidden; 
+        }
+
+        /* This creates the transparent "wash" over the image */
+        .banner-container::after {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(255, 252, 248, var(--banner-transparency));
+            pointer-events: none; /* Allows clicks to go through to the menu */
+            z-index: 1;
         }
 
         .banner-img {
@@ -52,11 +66,12 @@
             display: block; 
         }
 
-        /* --- Navigation Pinned to Bottom Right --- */
+        /* --- Navigation --- */
         .nav-container {
             position: absolute;
             bottom: 0;
             right: 0;
+            z-index: 2; /* Ensures menu stays ABOVE the transparency filter */
         }
 
         .nav-menu {
@@ -65,26 +80,23 @@
             gap: 25px;
             margin: 0;
             padding: 15px 25px;
-            /* Removed background and border */
             background: transparent; 
         }
 
         .nav-menu a {
             text-decoration: none;
-            color: #000000; /* Menu items changed to black */
+            color: #000000;
             font-weight: 700;
             font-size: 0.85rem;
             text-transform: uppercase;
             letter-spacing: 1.5px;
             transition: color 0.3s ease;
-            text-shadow: 1px 1px 5px rgba(255,255,255,0.8); /* Subtle light shadow to help legibility against dark parts of the photo */
         }
 
         .nav-menu a:hover {
             color: var(--gold);
         }
 
-        /* Support button styling revised to be black text with a simple border */
         .btn-support {
             border: 1px solid #000;
             padding: 4px 10px;
@@ -117,7 +129,7 @@
         @media (max-width: 768px) {
             .menu-toggle { 
                 display: block; 
-                background: #000; /* Black toggle to match menu */
+                background: #000; 
                 padding: 10px;
                 border: none;
                 cursor: pointer;
@@ -132,7 +144,7 @@
                 bottom: 100%;
                 right: 0;
                 width: 100%;
-                background: rgba(255,255,255,0.95); /* White background only on mobile for visibility */
+                background: rgba(255,255,255,0.95); 
                 text-align: center;
                 padding: 20px;
                 border-top: 1px solid #ddd;
@@ -183,3 +195,23 @@
     fetch('releases.json')
         .then(res => res.json())
         .then(data => {
+            const list = document.getElementById('release-list');
+            list.innerHTML = '';
+            data.forEach(item => {
+                const li = document.createElement('li');
+                li.innerHTML = `<strong>${item.artist}</strong>, <a href="${item.link}"><em>${item.album}</em></a> (${item.release_year}), ${item.cat_no}`;
+                list.appendChild(li);
+            });
+        }).catch(err => {
+            document.getElementById('release-list').innerHTML = '<li>Unable to load catalog.</li>';
+        });
+
+    const toggle = document.getElementById('mobile-menu-button');
+    const menu = document.getElementById('nav-list');
+    toggle.addEventListener('click', () => {
+        menu.classList.toggle('active');
+    });
+</script>
+
+</body>
+</html>
