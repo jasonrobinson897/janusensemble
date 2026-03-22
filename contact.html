@@ -10,66 +10,27 @@
     <link href="https://fonts.googleapis.com/css2?family=Jost:wght@400;700;800&display=swap" rel="stylesheet">
     
     <link rel="stylesheet" href="style.css">
-
-    <style>
-        /* Specific styles for the form elements since they aren't on the home page */
-        .contact-form {
-            display: flex;
-            flex-direction: column;
-            gap: 15px;
-            margin-top: 20px;
-        }
-
-        .form-group { display: flex; flex-direction: column; }
-
-        label { 
-            font-weight: 700; 
-            text-transform: uppercase; 
-            font-size: 0.75rem; 
-            margin-bottom: 5px; 
-            color: var(--navy);
-        }
-
-        input, textarea {
-            padding: 12px;
-            border: 1px solid #ccc;
-            font-family: 'Jost', sans-serif;
-            background: rgba(255,255,255,0.5);
-            border-radius: 4px;
-        }
-
-        button[type="submit"] {
-            background: var(--navy);
-            color: white;
-            padding: 15px;
-            border: none;
-            text-transform: uppercase;
-            font-weight: 700;
-            letter-spacing: 2px;
-            cursor: pointer;
-            transition: background 0.3s;
-            border-radius: 4px;
-            margin-top: 10px;
-        }
-
-        button[type="submit"]:hover { background: var(--gold); }
-    </style>
 </head>
 <body>
 
-<header class="banner-container">
-    <img src="https://jasonrobinson897.github.io/janusensemble/banner_image.png" alt="Janus Ensemble Banner" class="banner-img">
-    <nav class="nav-container">
-        <button class="menu-toggle" id="mobile-menu-button" aria-label="Toggle Menu">
-            <span></span><span></span><span></span>
-        </button>
-        <ul class="nav-menu" id="nav-list">
-            <li><a href="index.html">Home</a></li>
-            <li><a href="about.html">About</a></li>
-            <li><a href="contact.html">Contact</a></li>
-            <li><a href="support.html" class="btn-support">Support</a></li>
-        </ul>
-    </nav>
+<header class="banner-outer">
+    <div class="banner-inner">
+        <a href="index.html">
+            <img src="https://jasonrobinson897.github.io/janusensemble/headerlogo_image.png" alt="Janus Ensemble Logo" class="header-logo">
+        </a>
+
+        <nav class="nav-container">
+            <button class="menu-toggle" id="mobile-menu-button" aria-label="Toggle Menu">
+                <span></span><span></span><span></span>
+            </button>
+            <ul class="nav-menu" id="nav-list">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="contact.html">Contact</a></li>
+                <li><a href="support.html" class="btn-support">Support</a></li>
+            </ul>
+        </nav>
+    </div>
 </header>
 
 <main>
