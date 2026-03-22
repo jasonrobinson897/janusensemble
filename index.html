@@ -41,4 +41,31 @@
     <section class="content-card clearfix">
         <h2>Imaginative Music, Creative Excellence</h2>
         <img src="janus_ensemble_1.jpg" alt="Ensemble performance" class="img-right">
-        <p>This is where your text goes. Because of the "img-right" class, this paragraph will wrap around the left side of the image
+        <p>This is where your text goes. Because of the "img-right" class, this paragraph will wrap around the left side of the image. Jason Robinson's Janus Ensemble continues to push the boundaries of creative music through these specialized performances.</p>
+   
+        <img src="janus_ensemble_2.jpg" alt="Musicians in session" class="img-left">
+        <p>In this section, the image is pinned to the left. The text will flow naturally around the right side. This alternating layout creates a more dynamic visual flow for your readers as they scroll through the page content.</p>
+    </section>
+</main>
+
+<footer>
+    <div class="footer-content">
+        <img src="https://jasonrobinson897.github.io/janusensemble/footer_image.png" alt="Janus Ensemble Inc" class="footer-logo">
+        <p>&copy; <script>document.write(new Date().getFullYear());</script></p>
+    </div>
+</footer>
+
+<script>
+    // Script to make the mobile menu toggle open and shut
+    const toggle = document.getElementById('mobile-menu-button');
+    const menu = document.getElementById('nav-list');
+    
+    if(toggle && menu) {
+        toggle.addEventListener('click', () => {
+            menu.classList.toggle('active');
+        });
+    }
+</script>
+
+</body>
+</html>
