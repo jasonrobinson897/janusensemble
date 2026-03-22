@@ -95,6 +95,43 @@
         ul#release-list { list-style: none; padding: 0; }
         ul#release-list li { padding: 15px 0; border-bottom: 1px solid #eee; }
 
+        /* Image Aligned Right */
+.img-right {
+    float: right;
+    max-width: 400px;
+    width: 100%; /* Ensures responsiveness */
+    height: auto;
+    margin-left: 20px;
+    margin-bottom: 15px;
+}
+
+/* Image Aligned Left */
+.img-left {
+    float: left;
+    max-width: 400px;
+    width: 100%;
+    height: auto;
+    margin-right: 20px;
+    margin-bottom: 15px;
+}
+
+/* Fix to prevent text from overlapping following sections */
+.clearfix::after {
+    content: "";
+    clear: both;
+    display: table;
+}
+
+/* Mobile adjustment: stack images instead of wrapping */
+@media (max-width: 600px) {
+    .img-right, .img-left {
+        float: none;
+        display: block;
+        margin: 0 auto 20px auto;
+        max-width: 100%;
+    }
+}
+        
         /* --- Footer --- */
         footer { margin-top: 80px; padding: 20px; border-top: 1px solid #ddd; }
         .footer-content { display: flex; flex-direction: column; align-items: flex-end; }
@@ -190,6 +227,24 @@
     <ul id="release-list">
         <li>Loading releases...</li>
     </ul>
+
+<section class="clearfix">
+        <img src="janus_ensemble_1.jpg" alt="Description" class="img-right">
+        <p>This is where your text goes. Because of the "img-right" class, 
+        this paragraph will wrap around the left side of the image. 
+        Jason Robinson's Janus Ensemble continues to push the boundaries 
+        of creative music through these specialized performances.</p>
+    </section>
+
+    <br>
+
+    <section class="clearfix">
+        <img src="janus_ensemble_2.jpg" alt="Description" class="img-left">
+        <p>In this section, the image is pinned to the left. The text 
+        will flow naturally around the right side. This alternating 
+        layout creates a more dynamic visual flow for your readers as 
+        they scroll through the page content.</p>
+    </section>
 </main>
 
 <footer>
