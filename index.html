@@ -67,14 +67,27 @@
             padding: 0 20px;
         }
 
-        .logo-text a {
-            font-size: 1.2rem;
-            font-weight: 700;
-            color: var(--navy);
-            text-decoration: none;
-            text-transform: uppercase;
-            letter-spacing: 2px; /* Mimics the album spacing */
-        }
+.logo-text a {
+    display: flex;
+    flex-direction: column; /* Stacks the spans vertically */
+    line-height: 1.1;       /* Pulls the lines closer together */
+    text-decoration: none;
+    color: var(--navy);
+}
+
+.logo-top {
+    font-size: 0.75rem;     /* Smaller top text */
+    font-weight: 400;       /* Lighter weight */
+    text-transform: none;   /* Keeps it "Jason Robinson's" instead of all caps */
+    letter-spacing: 1px;
+}
+
+.logo-bottom {
+    font-size: 1.4rem;      /* Larger bottom text */
+    font-weight: 700;       /* Bold "JANUS ENSEMBLE" */
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
 
         .nav-menu {
             display: flex;
@@ -186,11 +199,14 @@
 <body>
 
 <header class="main-header">
-    <div class="header-inner">
-        <div class="logo-text">
-            <a href="index.html">Janus Ensemble</a>
-        </div>
-
+<div class="logo-text">
+    <a href="index.html">
+        <span class="logo-top">Jason Robinson's</span>
+        <span class="logo-bottom">Janus Ensemble</span>
+    </a>
+</div>
+    
+        
         <nav class="nav-container">
             <button class="menu-toggle" aria-label="Toggle Menu">
                 <span></span>
