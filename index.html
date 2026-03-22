@@ -38,7 +38,101 @@
         header img { max-width: 100%; height: auto; display: block; margin: 0 auto; }
 
         h2 { border-bottom: 1px solid #333; padding-bottom: 10px; margin-top: 40px; }
+:root {
+    --navy: #002d56;
+    --gold: #b5a478;
+    --cream: #fdfcf8;
+}
 
+.main-header {
+    position: sticky; /* Keeps menu at the top */
+    top: 0;
+    z-index: 1000; /* Ensures it stays above other content */
+    background-color: rgba(253, 252, 248, 0.98); /* Slight transparency */
+    border-bottom: 1px solid #ddd;
+    padding: 15px 0;
+    font-family: 'Cinzel', serif;
+}
+
+.header-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 20px;
+}
+
+.logo-text a {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: var(--navy);
+    text-decoration: none;
+    text-transform: uppercase;
+}
+
+.nav-menu {
+    display: flex;
+    list-style: none;
+    gap: 25px;
+    margin: 0;
+}
+
+.nav-menu a {
+    text-decoration: none;
+    color: var(--navy);
+    font-weight: 700;
+    font-size: 0.9rem;
+    transition: color 0.3s;
+}
+
+.nav-menu a:hover {
+    color: var(--gold);
+}
+
+/* Special styling for the Support link */
+.btn-support {
+    border: 1px solid var(--navy);
+    padding: 8px 15px;
+    border-radius: 4px;
+}
+
+.btn-support:hover {
+    background-color: var(--navy);
+    color: white !important;
+}
+
+/* --- Mobile Logic --- */
+.menu-toggle { display: none; }
+
+@media (max-width: 768px) {
+    .menu-toggle {
+        display: block;
+        background: none;
+        border: none;
+        cursor: pointer;
+    }
+    .menu-toggle span {
+        display: block;
+        width: 25px;
+        height: 2px;
+        background: var(--navy);
+        margin: 5px 0;
+    }
+    .nav-menu {
+        display: none;
+        flex-direction: column;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        background: var(--cream);
+        padding: 20px;
+        text-align: center;
+        border-bottom: 1px solid #ddd;
+    }
+    .nav-menu.active { display: flex; }
+}
 main {
 }
 
@@ -91,7 +185,25 @@ a:hover {
     </style>
 </head>
 <body>
+<header class="main-header">
+    <div class="header-inner">
+        <div class="logo-text">
+            <a href="index.html">Janus Ensemble</a>
+        </div>
 
+        <nav class="nav-container">
+            <button class="menu-toggle" aria-label="Toggle Menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <ul class="nav-menu">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="contact.html">Contact</a></li>
+                <li><a href="support.html" class="btn-support">Support</a></li>
+            </ul>
+        </nav>
     <header>
         <img src="https://jasonrobinson897.github.io/janusensemble/banner_image.png" alt="banner image">
         <p>Jason Robinson's Janus Ensemble, Inc. is a non-profit organization based in Massachusetts led by composer, saxophonist, and flutist Jason Robinson. The organization is dedicated to artistic production and performance, educational outreach, cultural preservation, and community engagement related to the small ensembles and full 17-piece creative music orchestra led by Jason Robinson.</p>
@@ -130,5 +242,13 @@ a:hover {
                 document.getElementById('release-list').innerHTML = '<li>Unable to load releases.</li>';
             });
     </script>
+        <script>
+    const toggle = document.querySelector('.menu-toggle');
+    const menu = document.querySelector('.nav-menu');
+
+    toggle.addEventListener('click', () => {
+        menu.classList.toggle('active');
+    });
+</script>
 </body>
 </html>
