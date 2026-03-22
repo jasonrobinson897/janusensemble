@@ -1,36 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jason Robinson's Janus Ensemble, Inc | Official Site</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Jost:wght@400;700;800&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header class="banner-outer">
+    <div class="banner-inner">
+        <a href="index.html">
+            <img src="https://jasonrobinson897.github.io/janusensemble/headerlogo_image.png" alt="Janus Ensemble Logo" class="header-logo">
+        </a>
+
+        <nav class="nav-container">
+            <button class="menu-toggle" id="mobile-menu-button" aria-label="Toggle Menu">
+                <span></span><span></span><span></span>
+            </button>
+            <ul class="nav-menu" id="nav-list">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="contact.html">Contact</a></li>
+                <li><a href="support.html" class="btn-support">Support</a></li>
+            </ul>
+        </nav>
+    </div>
+</header>
+
 <main>
+    
     <section class="content-card clearfix">
-        <p>Jason Robinson's Janus Ensemble, Inc. is the non-profit organization that supports much of the creative work of composer, saxophonist, flutist, and scholar Jason Robinson. Founded in 2009, the ensemble has transformed over the years and now includes small and medium-sized configurations, as well as the flagship 17-piece Janus Orchestra.</p>
-        <img src="janus_ensemble_3.png" alt="Musicians in session" class="img-center-full">
+        <p>Jason Robinson's Janus Ensemble, Inc. is the non-profit organization that supports much of the creative work of composer, saxophonist, flutist, and scholar Jason Robinson. Robinson's critically acclaimed Janus Ensemble was founded in 2009 and has performed and recorded in a variety of instrumentations and sizes. Expansive in energy and scope, the Janus Ensemble has transformed over the years and now includes a number of small and medium-sized configurations, as well as a flagship 17-piece large ensemble, the Janus Orchestra.</p>
+        <img src="janus_ensemble_3.png" alt="Musicians in session" class="img-center">
     </section>
 
-    <section class="two-column-row">
+    <section class="content-card clearfix">
+        <h2>Building a Brighter Future With Creative Music</h2>
+
+    <div class="two-column-row">
         <div class="column">
-            <h2>Building a Brighter Future With Creative Music</h2>
-            <p>Jason Robinson’s Janus Ensemble, Inc. is a 501(c)(3) non-profit organization dedicated to the performance, recording, and preservation of visionary creative music. Our work bridges the gap between jazz traditions and experimentalism.</p>
+            <p>Jason Robinson’s Janus Ensemble, Inc. is a 501(c)(3) non-profit organization dedicated to the performance, recording, and preservation of visionary creative music. Our work bridges the gap between jazz traditions and experimentalism through the 17-piece Janus Orchestra.</p>
         </div>
         
         <div class="column">
             <img src="janus_ensemble_3.png" alt="Janus Orchestra Performance">
         </div>
-    </section>
+    </div>
 
-    <div class="section-spacer"></div> <section class="content-card">
-        <h3>We fulfill our mission through:</h3>
-        <ul>
-            <li><strong>Artistic Production & Performance:</strong> Rehearsal, performance, and recording of original works.</li>
-            <li><strong>Educational Outreach:</strong> Workshops and masterclasses teaching the history and techniques of creative music.</li>
-            <li><strong>Cultural Preservation:</strong> Commissioning new works and documenting the evolution of the jazz art form.</li>
-            <li><strong>Community Engagement:</strong> Increasing accessibility through subsidized public performances.</li>
-        </ul>
+        
+    <h3>We fulfill our mission through:</h3>
+    <ul>
+        <li><strong>Artistic Production & Performance:</strong> To foster public appreciation for the jazz art form, also known as creative music, through the rehearsal, performance, and recording of original works for large and small jazz ensembles.</li>
+        <li><strong>Educational Outreach:</strong> To provide educational programming, including workshops and masterclasses aimed at teaching the history and techniques of composition and performance in jazz and creative music.</li>
+        <li><strong>Cultural Preservation:</strong> To document and preserve the evolution of small, medium, and large ensemble jazz and creative music through professional performances, recordings, and the commissioning of new works.</li>
+        <li><strong>Community Engagement:</strong> To increase accessibility to live music in both rural and urban communities in Massachusetts and elsewhere through subsidized public performances.</li>
+    </ul>
+     
     </section>
 
     <section class="content-card clearfix">
         <h2>Imaginative Music, Creative Excellence</h2>
         <img src="janus_ensemble_1.jpg" alt="Ensemble performance" class="img-right">
-        <p>This is where your text goes. Because of the "img-right" class, this paragraph will wrap around the left side of the image. Jason Robinson's Janus Ensemble continues to push the boundaries of creative music.</p>
+        <p>This is where your text goes. Because of the "img-right" class, this paragraph will wrap around the left side of the image. Jason Robinson's Janus Ensemble continues to push the boundaries of creative music through these specialized performances.</p>
    
         <img src="janus_ensemble_2.jpg" alt="Musicians in session" class="img-left">
-        <p>In this section, the image is pinned to the left. The text will flow naturally around the right side. This alternating layout creates a more dynamic visual flow.</p>
+        <p>In this section, the image is pinned to the left. The text will flow naturally around the right side. This alternating layout creates a more dynamic visual flow for your readers as they scroll through the page content.</p>
     </section>
 </main>
+
+<footer>
+    <div class="footer-content">
+        <img src="https://jasonrobinson897.github.io/janusensemble/footer_image.png" alt="Janus Ensemble Inc" class="footer-logo">
+        <p>&copy; <script>document.write(new Date().getFullYear());</script></p>
+    </div>
+</footer>
+
+<script>
+    // Script to make the mobile menu toggle open and shut
+    const toggle = document.getElementById('mobile-menu-button');
+    const menu = document.getElementById('nav-list');
+    
+    if(toggle && menu) {
+        toggle.addEventListener('click', () => {
+            menu.classList.toggle('active');
+        });
+    }
+</script>
+
+</body>
+</html>
