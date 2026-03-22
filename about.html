@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About | Jason Robinson's Janus Ensemble, Inc</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Jost:wght@400;700;800&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header class="banner-outer">
+    <div class="banner-inner">
+        <a href="index.html">
+            <img src="https://jasonrobinson897.github.io/janusensemble/headerlogo_image.png" alt="Janus Ensemble Logo" class="header-logo">
+        </a>
+
+        <nav class="nav-container">
+            <button class="menu-toggle" id="mobile-menu-button" aria-label="Toggle Menu">
+                <span></span><span></span><span></span>
+            </button>
+            <ul class="nav-menu" id="nav-list">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="contact.html">Contact</a></li>
+                <li><a href="support.html" class="btn-support">Support</a></li>
+            </ul>
+        </nav>
+    </div>
+</header>
+
+<main>
+    <section class="content-card clearfix">
+        <h2>Our Mission</h2>
+        <img src="about_mission.jpg" alt="Jason Robinson conducting" class="img-right">
+        <p>Jason Robinson’s Janus Ensemble, Inc. is a 501(c)(3) non-profit organization dedicated to the evolution and preservation of creative music. We believe that music is a living history, and our mission is to provide a platform for visionary compositions that bridge the gap between tradition and modern innovation.</p>
+        <p>Through the Janus Orchestra and our various small ensemble configurations, we strive to foster a deeper understanding of jazz and experimental music through high-caliber performances, professional recordings, and meaningful community engagement.</p>
+    </section>
+
+    <section class="content-card clearfix">
+        <h2>About Jason Robinson</h2>
+        <img src="jason_robinson_portrait.jpg" alt="Jason Robinson with saxophone" class="img-left">
+        <p>Composer, saxophonist, and flutist Jason Robinson is the creative force behind the Janus Ensemble. His work is characterized by a "Janus-faced" perspective—looking simultaneously toward the deep traditions of jazz and the limitless possibilities of future experimentalism.</p>
+        <p>With a career spanning decades of performance and academic research, Robinson’s compositions challenge performers and audiences alike to explore new sonic territories while maintaining a profound connection to the cultural roots of the music.</p>
+    </section>
+
+    <section class="content-card">
+        <h2>Community & Education</h2>
+        <p>Beyond the concert hall, Janus Ensemble, Inc. is committed to cultural preservation. We partner with local schools and art organizations to provide workshops and educational outreach, ensuring that the next generation of musicians has access to the tools and traditions of creative music.</p>
+        <p>We raise funds to ensure that every musician and cultural worker involved in our projects receives a living wage, recognizing that a vibrant arts community starts with supporting the people who create it.</p>
+    </section>
+</main>
+
+<footer>
+    <div class="footer-content">
+        <img src="https://jasonrobinson897.github.io/janusensemble/footer_image.png" alt="Janus Ensemble Inc" class="footer-logo">
+        <p>&copy; <script>document.write(new Date().getFullYear());</script>, Jason Robinson's Janus Ensemble, Inc.</p>
+    </div>
+</footer>
+
+<script>
+    const toggle = document.getElementById('mobile-menu-button');
+    const menu = document.getElementById('nav-list');
+    
+    if(toggle && menu) {
+        toggle.addEventListener('click', () => {
+            menu.classList.toggle('active');
+        });
+    }
+</script>
+
+</body>
+</html>
