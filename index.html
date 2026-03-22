@@ -18,7 +18,7 @@
         }
 
         html {
-            overflow-x: hidden; /* Prevents horizontal scroll at root level */
+            overflow-x: hidden;
         }
 
         body { 
@@ -29,14 +29,15 @@
             margin: 0 auto; 
             padding: 0 0 40px 0;
             min-height: 100vh;
+            /* Background made slightly less transparent (0.95) for better readability */
             background: 
-                linear-gradient(rgba(255, 252, 248, 0.5), rgba(255, 252, 248, 0.5)),
+                linear-gradient(rgba(255, 252, 248, 0.95), rgba(255, 252, 248, 0.95)),
                 url('background.png');
             background-size: cover;
             background-position: center;
             background-repeat: no-repeat;
             background-attachment: fixed;
-            overflow-x: hidden; /* Extra safety for the body */
+            overflow-x: hidden;
             width: 100%;
             position: relative;
         }
@@ -58,7 +59,7 @@
             display: block; 
         }
 
-        /* --- Navigation Pinned to Bottom Right (Desktop) --- */
+        /* --- Navigation --- */
         .nav-container {
             position: absolute;
             bottom: 0;
@@ -88,12 +89,21 @@
         .nav-menu a:hover { color: var(--gold); }
         .btn-support { border: 1px solid #000; padding: 4px 10px; }
 
-        /* --- Content Area --- */
+        /* --- Content Area & Transparent Cards --- */
         main { padding: 0 20px; }
+        
+        .content-card {
+            background: rgba(255, 255, 255, 0.7);
+            padding: 25px;
+            border-radius: 8px;
+            border: 1px solid rgba(0, 0, 0, 0.05);
+            margin-bottom: 25px;
+        }
+
         h2 { 
             border-bottom: 1px solid var(--navy); 
             padding-bottom: 10px; 
-            margin-top: 40px; 
+            margin-top: 20px; 
             text-transform: uppercase; 
             color: var(--navy);
             letter-spacing: 1px;
@@ -135,27 +145,23 @@
         
         /* --- Footer --- */
         footer { 
-            margin-top: 80px; 
-            padding: 10px 10px; 
+            margin-top: 60px; 
+            padding: 20px; 
             border-top: 1px solid #ddd;
-            /* Semi-transparent white rectangle */
             background: rgba(255, 255, 255, 0.7); 
             border-radius: 8px;
-            /* Keeps the box slightly away from the container edges */
-            margin-left: 15px;
-            margin-right: 15px;
+            margin-left: 20px;
+            margin-right: 20px;
             border: 1px solid rgba(0, 0, 0, 0.05);
         }
         .footer-content { display: flex; flex-direction: column; align-items: flex-end; }
         .footer-logo { width: 160px; height: auto; margin-bottom: -10px; }
-        .footer-content p { text-align: right; font-size: 0.8rem; text-transform: uppercase; color: #666; }
 
         /* --- Mobile Styles --- */
         .menu-toggle { display: none; }
 
         @media (max-width: 768px) {
             .banner-container { overflow: visible; }
-            
             .nav-container {
                 position: absolute;
                 bottom: 10px;
@@ -165,7 +171,6 @@
                 display: flex;
                 justify-content: center;
             }
-
             .menu-toggle { 
                 display: block; 
                 background: #000; 
@@ -173,15 +178,9 @@
                 border: none;
                 cursor: pointer;
             }
-            
             .menu-toggle span { 
-                display: block; 
-                width: 22px; 
-                height: 2px; 
-                background: white; 
-                margin: 5px 0; 
+                display: block; width: 22px; height: 2px; background: white; margin: 5px 0; 
             }
-
             .nav-menu {
                 display: none;
                 flex-direction: column;
@@ -195,20 +194,9 @@
                 border-top: 1px solid #ddd;
                 box-shadow: 0 10px 15px rgba(0,0,0,0.1);
             }
-            
             .nav-menu.active { display: flex; }
             .nav-menu li { margin: 10px 0; }
-            
-            .nav-menu a {
-                display: block;
-                width: 100%;
-                text-shadow: none;
-            }
-
-            .btn-support {
-                display: inline-block;
-                width: auto;
-            }
+            .nav-menu a { display: block; width: 100%; text-shadow: none; }
         }
     </style>
 </head>
@@ -216,12 +204,9 @@
 
 <header class="banner-container">
     <img src="https://jasonrobinson897.github.io/janusensemble/banner_image.png" alt="Janus Ensemble Banner" class="banner-img">
-
     <nav class="nav-container">
         <button class="menu-toggle" id="mobile-menu-button" aria-label="Toggle Menu">
-            <span></span>
-            <span></span>
-            <span></span>
+            <span></span><span></span><span></span>
         </button>
         <ul class="nav-menu" id="nav-list">
             <li><a href="index.html">Home</a></li>
@@ -233,20 +218,18 @@
 </header>
 
 <main>
-    <p>Jason Robinson's Janus Ensemble, Inc. is a non-profit organization that supports the performance, recording, educational outreach, community engagement, and cultural preservation of the composer, saxophonist, and flutist Jason Robinson’s Janus Ensemble. Consisting of a number of small, medium, and large ensemble configurations, including the 17-piece Janus Orchestra, Robinson’s Janus Ensemble is dedicated to commissioning and presentating visionary original music that extends jazz and creative music traditions. Jason Robinson’s Janus Ensemble, Inc partners with community-based and art-related organizations to present live performances and raises funds to provide living wages to musicians and other cultural workers who support live performance.</p>
-    <h2>Imaginative Music, Creative Excellence</h2>
+    <div class="content-card">
+        <section class="content-card clearfix">
+        <p>Jason Robinson's Janus Ensemble, Inc. is a non-profit organization that supports the performance, recording, educational outreach, community engagement, and cultural preservation of the composer, saxophonist, and flutist Jason Robinson’s Janus Ensemble. Consisting of a number of small, medium, and large ensemble configurations, including the 17-piece Janus Orchestra, Robinson’s Janus Ensemble is dedicated to commissioning and presentating visionary original music that extends jazz and creative music traditions. Jason Robinson’s Janus Ensemble, Inc partners with community-based and art-related organizations to present live performances and raises funds to provide living wages to musicians and other cultural workers who support live performance.</p>
+    </div>
 
-    <section class="clearfix">
+    <h2>Imaginative Music, Creative Excellence</h2>
         <img src="janus_ensemble_1.jpg" alt="Ensemble performance" class="img-right">
         <p>This is where your text goes. Because of the "img-right" class, 
         this paragraph will wrap around the left side of the image. 
         Jason Robinson's Janus Ensemble continues to push the boundaries 
         of creative music through these specialized performances.</p>
-    </section>
 
-    <br>
-
-    <section class="clearfix">
         <img src="janus_ensemble_2.jpg" alt="Musicians in session" class="img-left">
         <p>In this section, the image is pinned to the left. The text 
         will flow naturally around the right side. This alternating 
@@ -258,15 +241,13 @@
 <footer>
     <div class="footer-content">
         <img src="https://jasonrobinson897.github.io/janusensemble/footer_image.png" alt="Janus Ensemble Inc" class="footer-logo">
-        <p>&copy; <script>document.write(new Date().getFullYear());</script></p>
+        <p>&copy; <script>document.write(new Date().getFullYear());</script>, Jason Robinson's Janus Ensemble, Inc.</p>
     </div>
 </footer>
 
 <script>
-    // Script to make the mobile menu toggle open and shut
     const toggle = document.getElementById('mobile-menu-button');
     const menu = document.getElementById('nav-list');
-    
     if(toggle && menu) {
         toggle.addEventListener('click', () => {
             menu.classList.toggle('active');
