@@ -1,194 +1,194 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <link href='https://fonts.googleapis.com' rel='stylesheet'>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Jost:wght@400;700&display=swap" rel="stylesheet">
+    
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Jason Robinson's Janus Ensemble, Inc | Official Site</title>
     <style>
         * { box-sizing: border-box; }
+        
         body { 
-            font-family: 'GFS Didot', serif; 
+            /* 2. Set Jost as the primary font */
+            font-family: 'Jost', sans-serif; 
             line-height: 1.6; 
-            color: #333; 
+            color: #000000; 
             max-width: 800px; 
             margin: 0 auto; 
             padding: 20px;
-
-    min-height: 100vh;
-    /* This creates the background stack: 
-       1. A semi-transparent white layer (0.85 opacity)
-       2. Your image file */
-    background: 
+            min-height: 100vh;
+            background: 
                 linear-gradient(rgba(255, 252, 248, 0.85), rgba(255, 252, 248, 0.85)),
-        url('background.png');
-    
-    /* Scaling and Positioning */
-    background-size: cover;        /* Scales to fill the screen */
-    background-position: center;  /* Keeps it centered */
-    background-repeat: no-repeat; /* No tiling */
-    background-attachment: fixed; /* Optional: keeps image still while scrolling */
-    
-    /* Text readability */
-    color: #000000;
-}
+                url('background.png');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+        }
         
         header { text-align: left; margin-bottom: 40px; }
-        header p { font-style: none; color: #555; margin-top: 20px; margin-bottom: 20px;}
+        header p { color: #555; margin-top: 20px; margin-bottom: 20px;}
         header img { max-width: 100%; height: auto; display: block; margin: 0 auto; }
 
-        h2 { border-bottom: 1px solid #333; padding-bottom: 10px; margin-top: 40px; }
-:root {
-    --navy: #002d56;
-    --gold: #b5a478;
-    --cream: #fdfcf8;
-}
-
-.main-header {
-    position: sticky; /* Keeps menu at the top */
-    top: 0;
-    z-index: 1000; /* Ensures it stays above other content */
-    background-color: rgba(253, 252, 248, 0.98); /* Slight transparency */
-    border-bottom: 1px solid #ddd;
-    padding: 15px 0;
-    font-family: 'Cinzel', serif;
-}
-
-.header-inner {
-    max-width: 1200px;
-    margin: 0 auto;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 0 20px;
-}
-
-.logo-text a {
-    font-size: 1.5rem;
-    font-weight: bold;
-    color: var(--navy);
-    text-decoration: none;
-    text-transform: uppercase;
-}
-
-.nav-menu {
-    display: flex;
-    list-style: none;
-    gap: 25px;
-    margin: 0;
-}
-
-.nav-menu a {
-    text-decoration: none;
-    color: var(--navy);
-    font-weight: 700;
-    font-size: 0.9rem;
-    transition: color 0.3s;
-}
-
-.nav-menu a:hover {
-    color: var(--gold);
-}
-
-/* Special styling for the Support link */
-.btn-support {
-    border: 1px solid var(--navy);
-    padding: 8px 15px;
-    border-radius: 4px;
-}
-
-.btn-support:hover {
-    background-color: var(--navy);
-    color: white !important;
-}
-
-/* --- Mobile Logic --- */
-.menu-toggle { display: none; }
-
-@media (max-width: 768px) {
-    .menu-toggle {
-        display: block;
-        background: none;
-        border: none;
-        cursor: pointer;
-    }
-    .menu-toggle span {
-        display: block;
-        width: 25px;
-        height: 2px;
-        background: var(--navy);
-        margin: 5px 0;
-    }
-    .nav-menu {
-        display: none;
-        flex-direction: column;
-        position: absolute;
-        top: 100%;
-        left: 0;
-        width: 100%;
-        background: var(--cream);
-        padding: 20px;
-        text-align: center;
-        border-bottom: 1px solid #ddd;
-    }
-    .nav-menu.active { display: flex; }
-}
-main {
-}
-
-footer {
-    margin-top: 60px;
-    padding-top: 20px;
-    border-top: 1px solid #333;
-    p {text-align: right}
-}
-
-.footer-content {
-    display: flex;
-    flex-direction: column;      /* Stacks text and image vertically */
-    align-items: flex-end;       /* Aligns everything to the right side */
-    gap: -10px;                   /* Adds space between the text and the image */
-    width: 100%;
-}
-
-.footer-logo {
-    width: 200px;
-    height: auto;
-}
-        
-        /* Removes the default link color and blue underline */
-a {
-    color: inherit;            /* Matches the color of the text around it */
-    text-decoration: underline; /* Keeps the underline so users know it's a link */
-    text-decoration-thickness: 1px; /* Optional: makes the underline thinner */
-    text-underline-offset: 3px;     /* Optional: adds space between text and underline */
-}
-
-/* Optional: Add a subtle effect when hovering so the user knows it's interactive */
-a:hover {
-    color: #555;                /* Darkens slightly on hover for feedback */
-    text-decoration: underline;
-}
-
-        
-        /* List readability */
-        ul { list-style: none; padding: 0; }
-        li { padding: 8px 0; border-bottom: 1px solid #eee; }
-
-        footer { 
-            margin-top: 60px; 
-            padding-top: 20px; 
-            border-top: 1px solid #333; 
-            text-align: center; 
-            font-size: 0.9em; 
+        h2 { 
+            border-bottom: 1px solid #333; 
+            padding-bottom: 10px; 
+            margin-top: 40px; 
+            text-transform: uppercase; 
+            letter-spacing: 1px;
         }
+
+        :root {
+            --navy: #002d56;
+            --gold: #b5a478;
+            --cream: #fdfcf8;
+        }
+
+        .main-header {
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            background-color: rgba(253, 252, 248, 0.98);
+            border-bottom: 1px solid #ddd;
+            padding: 15px 0;
+            /* Using Jost here too for consistency */
+            font-family: 'Jost', sans-serif;
+        }
+
+        .header-inner {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 20px;
+        }
+
+        .logo-text a {
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: var(--navy);
+            text-decoration: none;
+            text-transform: uppercase;
+            letter-spacing: 2px; /* Mimics the album spacing */
+        }
+
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            gap: 25px;
+            margin: 0;
+            padding: 0;
+        }
+
+        .nav-menu a {
+            text-decoration: none;
+            color: var(--navy);
+            font-weight: 700;
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: color 0.3s;
+        }
+
+        .nav-menu a:hover {
+            color: var(--gold);
+        }
+
+        .btn-support {
+            border: 1px solid var(--navy);
+            padding: 8px 15px;
+            border-radius: 4px;
+        }
+
+        .btn-support:hover {
+            background-color: var(--navy);
+            color: white !important;
+        }
+
+        /* --- Mobile Logic --- */
+        .menu-toggle { display: none; }
+
+        @media (max-width: 768px) {
+            .menu-toggle {
+                display: block;
+                background: none;
+                border: none;
+                cursor: pointer;
+            }
+            .menu-toggle span {
+                display: block;
+                width: 25px;
+                height: 2px;
+                background: var(--navy);
+                margin: 5px 0;
+            }
+            .nav-menu {
+                display: none;
+                flex-direction: column;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                background: var(--cream);
+                padding: 20px;
+                text-align: center;
+                border-bottom: 1px solid #ddd;
+            }
+            .nav-menu.active { display: flex; }
+        }
+
+        footer {
+            margin-top: 60px;
+            padding-top: 20px;
+            border-top: 1px solid #333;
+        }
+
+        .footer-content {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-end;
+            width: 100%;
+        }
+
+        .footer-content p {
+            text-align: right;
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .footer-logo {
+            width: 200px;
+            height: auto;
+            margin-bottom: 10px;
+        }
+        
+        a {
+            color: inherit;
+            text-decoration: underline;
+            text-decoration-thickness: 1px;
+            text-underline-offset: 3px;
+        }
+
+        a:hover {
+            color: #555;
+        }
+
+        ul#release-list { list-style: none; padding: 0; }
+        ul#release-list li { padding: 12px 0; border-bottom: 1px solid #eee; }
+
     </style>
 </head>
 <body>
+
 <header class="main-header">
     <div class="header-inner">
         <div class="logo-text">
-            <a href="index.html">Jason Robinson's Janus Ensemble, Inc</a>
+            <a href="index.html">Janus Ensemble</a>
         </div>
 
         <nav class="nav-container">
@@ -203,53 +203,54 @@ a:hover {
                 <li><a href="contact.html">Contact</a></li>
                 <li><a href="support.html" class="btn-support">Support</a></li>
             </ul>
-    </header>
- 
-    <body>
-            <img src="https://jasonrobinson897.github.io/janusensemble/banner_image.png" alt="banner image" style="max-width: 800px; height: auto;">
-        <p>Jason Robinson's Janus Ensemble, Inc. is a non-profit organization based in Massachusetts led by composer, saxophonist, and flutist Jason Robinson. The organization is dedicated to artistic production and performance, educational outreach, cultural preservation, and community engagement related to the small ensembles and full 17-piece creative music orchestra led by Jason Robinson.</p>
+        </nav>
+    </div>
+</header>
+
+<main>
+    <img src="https://jasonrobinson897.github.io/janusensemble/banner_image.png" alt="banner image" style="width: 100%; max-width: 800px; height: auto; margin: 20px 0;">
     
+    <p>Jason Robinson's Janus Ensemble, Inc. is a non-profit organization based in Massachusetts led by composer, saxophonist, and flutist Jason Robinson. The organization is dedicated to artistic production and performance, educational outreach, cultural preservation, and community engagement related to the small ensembles and full 17-piece creative music orchestra led by Jason Robinson.</p>
 
-   
-        <h2>Catalog</h2>
-        <ul id="release-list">
-            <li>Loading releases...</li>
-        </ul>
-  </body>
+    <h2>Catalog</h2>
+    <ul id="release-list">
+        <li>Loading releases...</li>
+    </ul>
+</main>
 
-   <footer>
+<footer>
     <div class="footer-content">
         <img src="https://jasonrobinson897.github.io/circumventionmusic/Circumvention-Music-b&w-large_edited_edited.png" alt="Circumvention Music Logo" class="footer-logo">
         <p>Contact: info [at] janusensemble [dawt] org<br>
-        &copy; <script>document.write(new Date().getFullYear());</script>, Jason Robinson's Janus Ensemble, Inc. All rights reserved.</p>
+        &copy; <script>document.write(new Date().getFullYear());</script>, Jason Robinson's Janus Ensemble, Inc.</p>
     </div>
 </footer>
 
-    <script>
-        // Fetches data from your JSON file and builds the list
-        fetch('releases.json')
-            .then(response => response.json())
-            .then(data => {
-                const list = document.getElementById('release-list');
-                list.innerHTML = ''; // Clear the "Loading..." text
-                data.forEach(item => {
-                    const li = document.createElement('li');
-                    li.innerHTML = `${item.artist}, <a href="${item.link}"><em>${item.album}</em></a> (${item.release_year}), ${item.cat_no}`;
-                    list.appendChild(li);
-                });
-            })
-            .catch(error => {
-                console.error('Error loading releases:', error);
-                document.getElementById('release-list').innerHTML = '<li>Unable to load releases.</li>';
+<script>
+    // Fetches data and builds the list
+    fetch('releases.json')
+        .then(response => response.json())
+        .then(data => {
+            const list = document.getElementById('release-list');
+            list.innerHTML = '';
+            data.forEach(item => {
+                const li = document.createElement('li');
+                li.innerHTML = `<strong>${item.artist}</strong>, <a href="${item.link}"><em>${item.album}</em></a> (${item.release_year}), ${item.cat_no}`;
+                list.appendChild(li);
             });
-    </script>
-        <script>
+        })
+        .catch(error => {
+            console.error('Error loading releases:', error);
+            document.getElementById('release-list').innerHTML = '<li>Unable to load releases.</li>';
+        });
+
+    // Mobile menu toggle
     const toggle = document.querySelector('.menu-toggle');
     const menu = document.querySelector('.nav-menu');
-
     toggle.addEventListener('click', () => {
         menu.classList.toggle('active');
     });
 </script>
+
 </body>
 </html>
