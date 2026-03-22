@@ -16,7 +16,7 @@ body {
     font-family: 'Jost', sans-serif; 
     line-height: 1.6; 
     color: #000000; 
-    margin: 0; /* Removed auto margin and max-width from body */
+    margin: 0; 
     padding: 0 0 40px 0;
     min-height: 100vh;
     background: 
@@ -29,7 +29,7 @@ body {
     width: 100%;
 }
 
-/* --- New Full-Width Black Banner --- */
+/* --- Full-Width Black Banner --- */
 .banner-outer {
     width: 100%;
     height: 100px;
@@ -42,7 +42,7 @@ body {
 
 .banner-inner {
     width: 100%;
-    max-width: 800px; /* Aligns with content below */
+    max-width: 800px;
     height: 100%;
     display: flex;
     justify-content: space-between;
@@ -51,14 +51,14 @@ body {
 }
 
 .header-logo {
-    height: 60px; /* Adjust based on your image height */
+    height: 60px;
     width: auto;
     display: block;
 }
 
-/* --- Navigation (Updated for Black Banner) --- */
+/* --- Navigation --- */
 .nav-container {
-    position: relative; /* Changed from absolute to keep it in flow */
+    position: relative;
 }
 
 .nav-menu {
@@ -72,7 +72,7 @@ body {
 
 .nav-menu a {
     text-decoration: none;
-    color: #ffffff; /* White text for the black bar */
+    color: #ffffff;
     font-weight: 700;
     font-size: 0.85rem;
     text-transform: uppercase;
@@ -91,7 +91,7 @@ body {
 main { 
     max-width: 800px; 
     margin: 0 auto; 
-    padding: 0 0px; 
+    padding: 0 20px; 
 }
 
 .content-card {
@@ -111,7 +111,57 @@ h2 {
     letter-spacing: 1px;
 }
 
-/* Image Wrapping Classes */
+/* --- Form Styles (New) --- */
+.contact-form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    margin-top: 20px;
+}
+
+.form-group { 
+    display: flex; 
+    flex-direction: column; 
+}
+
+.contact-form label { 
+    font-weight: 700; 
+    text-transform: uppercase; 
+    font-size: 0.75rem; 
+    margin-bottom: 5px; 
+    color: var(--navy);
+}
+
+.contact-form input, 
+.contact-form textarea {
+    padding: 12px;
+    border: 1px solid #ccc;
+    font-family: 'Jost', sans-serif;
+    background: rgba(255,255,255,0.5);
+    border-radius: 4px;
+    font-size: 1rem;
+}
+
+.contact-form button[type="submit"] {
+    background: #000;
+    color: white;
+    padding: 15px;
+    border: none;
+    text-transform: uppercase;
+    font-weight: 700;
+    letter-spacing: 2px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    border-radius: 4px;
+    margin-top: 10px;
+}
+
+.contact-form button[type="submit"]:hover { 
+    background: var(--gold); 
+    color: #000;
+}
+
+/* --- Image Wrapping --- */
 .img-right {
     float: right;
     max-width: 310px;
@@ -176,7 +226,7 @@ footer {
         display: none;
         flex-direction: column;
         position: absolute;
-        top: 60px; /* Adjusted for new header height */
+        top: 60px;
         right: 0;
         width: 200px;
         background: rgba(0,0,0,0.9); 
