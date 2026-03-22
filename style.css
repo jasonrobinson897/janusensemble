@@ -206,7 +206,7 @@ footer {
     border: 1px solid rgba(0, 0, 0, 0.05);
 }
 footer p {
-    font-size: 0.75rem;      /* Makes the text smaller */
+    font-size: 0.5rem;      /* Makes the text smaller */
     color: #666;             /* Optional: dims the color slightly for a cleaner look */
     letter-spacing: 0.5px;   /* Optional: adds a bit of air between letters */
     margin: 10px 0 0 0;      /* Adds a little space above the text */
