@@ -183,11 +183,11 @@ h2 {
     margin-right: 20px;
     margin-bottom: 15px;
 }
-.img-center {
+.img-center-full {
     display: block;       /* Forces the image to be its own block */
     margin-left: auto;    /* Pushes from the left */
     margin-right: auto;   /* Pushes from the right */
-    max-width: 600px;
+    max-width: 750px;
     width: 100%; 
     height: auto;
     margin-top: 10px;
