@@ -94,6 +94,35 @@ main {
     padding: 0 0px; 
 }
 
+/* --- Mission Row Layout --- */
+.mission-row {
+    display: flex;
+    align-items: center; /* This vertically centers the text to the left of the image */
+    gap: 40px;           /* Adjusts the space between the text and the image */
+    margin-bottom: 20px;
+}
+
+.mission-text, .mission-image {
+    flex: 1;             /* Ensures both columns take up equal width */
+}
+
+/* --- Spacing Fix --- */
+.section-spacer {
+    clear: both;         /* Prevents any elements from overlapping */
+    height: 40px;        /* Controls the gap between the paragraph and the H3/Pillars */
+}
+
+/* --- Responsive Stacking (Mobile) --- */
+@media (max-width: 768px) {
+    .mission-row {
+        flex-direction: column; /* Stacks the text on top of the image on small screens */
+        text-align: center;
+    }
+    .mission-image {
+        width: 100%;
+    }
+}
+
 .content-card {
     background: rgba(255, 255, 255, 0.8);
     padding: 25px;
