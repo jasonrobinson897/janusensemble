@@ -92,9 +92,6 @@
             letter-spacing: 1px;
         }
 
-        ul#release-list { list-style: none; padding: 0; }
-        ul#release-list li { padding: 15px 0; border-bottom: 1px solid #eee; }
-
         /* Image Aligned Right */
 .img-right {
     float: right;
@@ -254,28 +251,6 @@
         &copy; <script>document.write(new Date().getFullYear());</script>, Jason Robinson's Janus Ensemble, Inc.</p>
     </div>
 </footer>
-
-<script>
-    fetch('releases.json')
-        .then(res => res.json())
-        .then(data => {
-            const list = document.getElementById('release-list');
-            list.innerHTML = '';
-            data.forEach(item => {
-                const li = document.createElement('li');
-                li.innerHTML = `<strong>${item.artist}</strong>, <a href="${item.link}"><em>${item.album}</em></a> (${item.release_year}), ${item.cat_no}`;
-                list.appendChild(li);
-            });
-        }).catch(err => {
-            document.getElementById('release-list').innerHTML = '<li>Unable to load catalog.</li>';
-        });
-
-    const toggle = document.getElementById('mobile-menu-button');
-    const menu = document.getElementById('nav-list');
-    toggle.addEventListener('click', () => {
-        menu.classList.toggle('active');
-    });
-</script>
 
 </body>
 </html>
