@@ -12,8 +12,8 @@
         * { box-sizing: border-box; }
         
         :root {
+            /* Kept the colors for the content and footer */
             --navy: #002d56;
-            --navy-trans: rgba(0, 45, 86, 0.85); 
             --gold: #b5a478;
             --cream: #fdfcf8;
         }
@@ -35,52 +35,24 @@
             background-attachment: fixed;
         }
         
-        /* --- The Fixed-Width Banner Container --- */
+        /* --- Banner Container --- */
         .banner-container {
-            position: relative; /* This allows us to "pin" things inside it */
+            position: relative; 
             width: 100%;
             max-width: 800px;
             margin-bottom: 30px;
-            border-bottom: 5px solid var(--navy);
-            overflow: hidden; /* Keeps the nav bar from spilling out */
+            /* Border removed as requested, keeping a subtle line for structure */
+            border-bottom: 1px solid #ddd;
+            overflow: hidden; 
         }
 
         .banner-img {
             width: 100%;
             height: auto;
-            display: block; /* Removes white space at bottom of image */
+            display: block; 
         }
 
-        /* --- Overlay Elements --- */
-        .logo-overlay {
-            position: absolute;
-            top: 20px;
-            left: 20px;
-        }
-
-        .logo-overlay a {
-            display: flex;
-            flex-direction: column;
-            text-decoration: none;
-            color: white;
-            text-shadow: 2px 2px 8px rgba(0,0,0,0.8);
-            line-height: 1.1;
-        }
-
-        .logo-top {
-            font-size: 1rem;
-            font-weight: 400;
-            letter-spacing: 1px;
-        }
-
-        .logo-bottom {
-            font-size: 2.2rem;
-            font-weight: 800; 
-            text-transform: uppercase;
-            letter-spacing: 3px;
-        }
-
-        /* Nav Bar Pinned to Bottom Right */
+        /* --- Navigation Pinned to Bottom Right --- */
         .nav-container {
             position: absolute;
             bottom: 0;
@@ -90,29 +62,31 @@
         .nav-menu {
             display: flex;
             list-style: none;
-            gap: 20px;
+            gap: 25px;
             margin: 0;
-            padding: 12px 25px;
-            background: var(--navy-trans);
-            border-radius: 4px 0 0 0;
+            padding: 15px 25px;
+            /* Removed background and border */
+            background: transparent; 
         }
 
         .nav-menu a {
             text-decoration: none;
-            color: white;
+            color: #000000; /* Menu items changed to black */
             font-weight: 700;
             font-size: 0.85rem;
             text-transform: uppercase;
             letter-spacing: 1.5px;
             transition: color 0.3s ease;
+            text-shadow: 1px 1px 5px rgba(255,255,255,0.8); /* Subtle light shadow to help legibility against dark parts of the photo */
         }
 
         .nav-menu a:hover {
             color: var(--gold);
         }
 
+        /* Support button styling revised to be black text with a simple border */
         .btn-support {
-            border: 1px solid white;
+            border: 1px solid #000;
             padding: 4px 10px;
         }
 
@@ -125,13 +99,14 @@
             margin-top: 40px; 
             text-transform: uppercase; 
             color: var(--navy);
+            letter-spacing: 1px;
         }
 
         ul#release-list { list-style: none; padding: 0; }
-        ul#release-list li { padding: 15px 0; border-bottom: 1px solid #ddd; }
+        ul#release-list li { padding: 15px 0; border-bottom: 1px solid #eee; }
 
         /* --- Footer --- */
-        footer { margin-top: 80px; padding: 20px; border-top: 1px solid var(--navy); }
+        footer { margin-top: 80px; padding: 20px; border-top: 1px solid #ddd; }
         .footer-content { display: flex; flex-direction: column; align-items: flex-end; }
         .footer-logo { width: 160px; height: auto; margin-bottom: 15px; }
         .footer-content p { text-align: right; font-size: 0.8rem; text-transform: uppercase; color: #666; }
@@ -140,14 +115,13 @@
         .menu-toggle { display: none; }
 
         @media (max-width: 768px) {
-            .logo-bottom { font-size: 1.6rem; }
-            
             .menu-toggle { 
                 display: block; 
-                background: var(--navy);
-                padding: 12px;
+                background: #000; /* Black toggle to match menu */
+                padding: 10px;
                 border: none;
                 cursor: pointer;
+                margin: 10px;
             }
             .menu-toggle span { display: block; width: 22px; height: 2px; background: white; margin: 5px 0; }
 
@@ -155,12 +129,13 @@
                 display: none;
                 flex-direction: column;
                 position: absolute;
-                bottom: 100%; /* Drops UP if at the bottom, or stays relative */
+                bottom: 100%;
                 right: 0;
-                width: 200px; /* Thinner mobile menu */
-                background: var(--navy);
-                text-align: right;
+                width: 100%;
+                background: rgba(255,255,255,0.95); /* White background only on mobile for visibility */
+                text-align: center;
                 padding: 20px;
+                border-top: 1px solid #ddd;
             }
             .nav-menu.active { display: flex; }
             .nav-menu li { margin: 10px 0; }
@@ -171,13 +146,6 @@
 
 <header class="banner-container">
     <img src="https://jasonrobinson897.github.io/janusensemble/banner_image.png" alt="Janus Ensemble Banner" class="banner-img">
-
-    <div class="logo-overlay">
-        <a href="index.html">
-            <span class="logo-top">Jason Robinson's</span>
-            <span class="logo-bottom">Janus Ensemble</span>
-        </a>
-    </div>
 
     <nav class="nav-container">
         <button class="menu-toggle" id="mobile-menu-button" aria-label="Toggle Menu">
@@ -215,23 +183,3 @@
     fetch('releases.json')
         .then(res => res.json())
         .then(data => {
-            const list = document.getElementById('release-list');
-            list.innerHTML = '';
-            data.forEach(item => {
-                const li = document.createElement('li');
-                li.innerHTML = `<strong>${item.artist}</strong>, <a href="${item.link}"><em>${item.album}</em></a> (${item.release_year}), ${item.cat_no}`;
-                list.appendChild(li);
-            });
-        }).catch(err => {
-            document.getElementById('release-list').innerHTML = '<li>Unable to load catalog.</li>';
-        });
-
-    const toggle = document.getElementById('mobile-menu-button');
-    const menu = document.getElementById('nav-list');
-    toggle.addEventListener('click', () => {
-        menu.classList.toggle('active');
-    });
-</script>
-
-</body>
-</html>
