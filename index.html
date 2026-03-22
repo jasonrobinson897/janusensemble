@@ -39,8 +39,10 @@
             position: relative; 
             width: 100%;
             max-width: 800px;
-            margin-bottom: 20px;
+            min-height: 200px; 
+            margin-bottom: 30px;
             border-bottom: 1px solid #ddd;
+            overflow: hidden; 
         }
 
         .banner-img {
@@ -49,12 +51,11 @@
             display: block; 
         }
 
-        /* --- Navigation Desktop (Pinned to Image) --- */
+        /* --- Navigation Pinned to Bottom Right --- */
         .nav-container {
             position: absolute;
             bottom: 0;
             right: 0;
-            z-index: 10;
         }
 
         .nav-menu {
@@ -77,50 +78,18 @@
             text-shadow: 1px 1px 5px rgba(255,255,255,0.8);
         }
 
-        .nav-menu a:hover { color: var(--gold); }
-        .btn-support { border: 1px solid #000; padding: 4px 10px; }
+        .nav-menu a:hover {
+            color: var(--gold);
+        }
 
-        /* --- Mobile Styles --- */
-        .menu-toggle { display: none; }
-
-        @media (max-width: 768px) {
-            /* Reset banner for mobile */
-            .banner-container { overflow: visible; }
-            
-            /* Move nav container below image on mobile for stability */
-            .nav-container {
-                position: relative;
-                width: 100%;
-                background: rgba(255,255,255,0.7); /* Light wash behind toggle */
-                text-align: center;
-            }
-
-            .menu-toggle { 
-                display: inline-block; 
-                background: #000; 
-                padding: 10px;
-                border: none;
-                cursor: pointer;
-                margin: 10px auto;
-            }
-            .menu-toggle span { display: block; width: 22px; height: 2px; background: white; margin: 5px 0; }
-
-            .nav-menu {
-                display: none;
-                flex-direction: column;
-                width: 100%;
-                padding: 20px 0;
-                gap: 15px;
-                align-items: center;
-            }
-            
-            .nav-menu.active { display: flex; }
-            .nav-menu li { margin: 5px 0; }
-            .nav-menu a { text-shadow: none; } /* Clearer on mobile white bg */
+        .btn-support {
+            border: 1px solid #000;
+            padding: 4px 10px;
         }
 
         /* --- Content Area --- */
         main { padding: 0 20px; }
+
         h2 { 
             border-bottom: 1px solid var(--navy); 
             padding-bottom: 10px; 
@@ -129,4 +98,105 @@
             color: var(--navy);
             letter-spacing: 1px;
         }
-        ul#release-list
+
+        ul#release-list { list-style: none; padding: 0; }
+        ul#release-list li { padding: 15px 0; border-bottom: 1px solid #eee; }
+
+        /* --- Footer --- */
+        footer { margin-top: 80px; padding: 20px; border-top: 1px solid #ddd; }
+        .footer-content { display: flex; flex-direction: column; align-items: flex-end; }
+        .footer-logo { width: 160px; height: auto; margin-bottom: 15px; }
+        .footer-content p { text-align: right; font-size: 0.8rem; text-transform: uppercase; color: #666; }
+
+        /* --- Mobile Styles --- */
+        .menu-toggle { display: none; }
+
+        @media (max-width: 768px) {
+            .menu-toggle { 
+                display: block; 
+                background: #000; 
+                padding: 10px;
+                border: none;
+                cursor: pointer;
+                margin: 10px;
+            }
+            .menu-toggle span { display: block; width: 22px; height: 2px; background: white; margin: 5px 0; }
+
+            .nav-menu {
+                display: none;
+                flex-direction: column;
+                position: absolute;
+                bottom: 100%;
+                right: 0;
+                width: 100%;
+                background: rgba(255,255,255,0.95); 
+                text-align: center;
+                padding: 20px;
+                border-top: 1px solid #ddd;
+            }
+            .nav-menu.active { display: flex; }
+            .nav-menu li { margin: 10px 0; }
+        }
+    </style>
+</head>
+<body>
+
+<header class="banner-container">
+    <img src="https://jasonrobinson897.github.io/janusensemble/banner_image.png" alt="Janus Ensemble Banner" class="banner-img">
+
+    <nav class="nav-container">
+        <button class="menu-toggle" id="mobile-menu-button" aria-label="Toggle Menu">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+        <ul class="nav-menu" id="nav-list">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="contact.html">Contact</a></li>
+            <li><a href="support.html" class="btn-support">Support</a></li>
+        </ul>
+    </nav>
+</header>
+
+<main>
+    <p>Jason Robinson's Janus Ensemble, Inc. is a non-profit organization based in Massachusetts led by composer, saxophonist, and flutist Jason Robinson. The organization is dedicated to artistic production and performance, educational outreach, cultural preservation, and community engagement related to the small ensembles and full 17-piece creative music orchestra led by Jason Robinson.</p>
+
+    <h2>Catalog</h2>
+    <ul id="release-list">
+        <li>Loading releases...</li>
+    </ul>
+</main>
+
+<footer>
+    <div class="footer-content">
+        <img src="https://jasonrobinson897.github.io/circumventionmusic/Circumvention-Music-b&w-large_edited_edited.png" alt="Circumvention Music Logo" class="footer-logo">
+        <p>Contact: info [at] janusensemble [dawt] org<br>
+        &copy; <script>document.write(new Date().getFullYear());</script>, Jason Robinson's Janus Ensemble, Inc.</p>
+    </div>
+</footer>
+
+<script>
+    fetch('releases.json')
+        .then(res => res.json())
+        .then(data => {
+            const list = document.getElementById('release-list');
+            list.innerHTML = '';
+            data.forEach(item => {
+                const li = document.createElement('li');
+                li.innerHTML = `<strong>${item.artist}</strong>, <a href="${item.link}"><em>${item.album}</em></a> (${item.release_year}), ${item.cat_no}`;
+                list.appendChild(li);
+            });
+        }).catch(err => {
+            document.getElementById('release-list').innerHTML = '<li>Unable to load catalog.</li>';
+        });
+
+    const toggle = document.getElementById('mobile-menu-button');
+    const menu = document.getElementById('nav-list');
+    toggle.addEventListener('click', () => {
+        menu.classList.toggle('active');
+    });
+</script>
+
+</body>
+</html>
