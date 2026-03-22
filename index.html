@@ -17,6 +17,10 @@
             --cream: #fdfcf8;
         }
 
+        html {
+            overflow-x: hidden; /* Prevents horizontal scroll at root level */
+        }
+
         body { 
             font-family: 'Jost', sans-serif; 
             line-height: 1.6; 
@@ -32,6 +36,9 @@
             background-position: center;
             background-repeat: no-repeat;
             background-attachment: fixed;
+            overflow-x: hidden; /* Extra safety for the body */
+            width: 100%;
+            position: relative;
         }
         
         /* --- Banner Container --- */
@@ -92,42 +99,39 @@
             letter-spacing: 1px;
         }
 
-        /* Image Aligned Right */
-.img-right {
-    float: right;
-    max-width: 310px;
-    width: 100%; /* Ensures responsiveness */
-    height: auto;
-    margin-left: 20px;
-    margin-bottom: 15px;
-}
+        /* Image Wrapping Classes */
+        .img-right {
+            float: right;
+            max-width: 310px;
+            width: 100%; 
+            height: auto;
+            margin-left: 20px;
+            margin-bottom: 15px;
+        }
 
-/* Image Aligned Left */
-.img-left {
-    float: left;
-    max-width: 310px;
-    width: 100%;
-    height: auto;
-    margin-right: 20px;
-    margin-bottom: 15px;
-}
+        .img-left {
+            float: left;
+            max-width: 310px;
+            width: 100%;
+            height: auto;
+            margin-right: 20px;
+            margin-bottom: 15px;
+        }
 
-/* Fix to prevent text from overlapping following sections */
-.clearfix::after {
-    content: "";
-    clear: both;
-    display: table;
-}
+        .clearfix::after {
+            content: "";
+            clear: both;
+            display: table;
+        }
 
-/* Mobile adjustment: stack images instead of wrapping */
-@media (max-width: 600px) {
-    .img-right, .img-left {
-        float: none;
-        display: block;
-        margin: 0 auto 20px auto;
-        max-width: 100%;
-    }
-}
+        @media (max-width: 600px) {
+            .img-right, .img-left {
+                float: none;
+                display: block;
+                margin: 0 auto 20px auto;
+                max-width: 100%;
+            }
+        }
         
         /* --- Footer --- */
         footer { margin-top: 80px; padding: 20px; border-top: 1px solid #ddd; }
@@ -222,8 +226,8 @@
 
     <h2>Imaginative Music, Creative Excellence</h2>
 
-<section class="clearfix">
-        <img src="janus_ensemble_1.jpg" alt="Description" class="img-right">
+    <section class="clearfix">
+        <img src="janus_ensemble_1.jpg" alt="Ensemble performance" class="img-right">
         <p>This is where your text goes. Because of the "img-right" class, 
         this paragraph will wrap around the left side of the image. 
         Jason Robinson's Janus Ensemble continues to push the boundaries 
@@ -233,7 +237,7 @@
     <br>
 
     <section class="clearfix">
-        <img src="janus_ensemble_2.jpg" alt="Description" class="img-left">
+        <img src="janus_ensemble_2.jpg" alt="Musicians in session" class="img-left">
         <p>In this section, the image is pinned to the left. The text 
         will flow naturally around the right side. This alternating 
         layout creates a more dynamic visual flow for your readers as 
@@ -248,6 +252,18 @@
         &copy; <script>document.write(new Date().getFullYear());</script>, Jason Robinson's Janus Ensemble, Inc.</p>
     </div>
 </footer>
+
+<script>
+    // Script to make the mobile menu toggle open and shut
+    const toggle = document.getElementById('mobile-menu-button');
+    const menu = document.getElementById('nav-list');
+    
+    if(toggle && menu) {
+        toggle.addEventListener('click', () => {
+            menu.classList.toggle('active');
+        });
+    }
+</script>
 
 </body>
 </html>
