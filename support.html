@@ -120,4 +120,22 @@
 
 <footer>
     <div class="footer-content">
-        <img src="https://jasonrobinson897.github.io/janusensemble/footer_image.png" alt="Janus Ensemble Inc" class="footer-logo
+        <img src="https://jasonrobinson897.github.io/janusensemble/footer_image.png" alt="Janus Ensemble Inc" class="footer-logo">
+        <p>&copy; <script>document.write(new Date().getFullYear());</script></p>
+    </div>
+</footer>
+
+<script>
+    // Script to make the mobile menu toggle open and shut
+    const toggle = document.getElementById('mobile-menu-button');
+    const menu = document.getElementById('nav-list');
+    
+    if(toggle && menu) {
+        toggle.addEventListener('click', () => {
+            menu.classList.toggle('active');
+        });
+    }
+</script>
+
+</body>
+</html>
