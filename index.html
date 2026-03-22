@@ -39,10 +39,8 @@
             position: relative; 
             width: 100%;
             max-width: 800px;
-            min-height: 200px; 
-            margin-bottom: 30px;
+            margin-bottom: 20px;
             border-bottom: 1px solid #ddd;
-            overflow: hidden; 
         }
 
         .banner-img {
@@ -51,11 +49,12 @@
             display: block; 
         }
 
-        /* --- Navigation Pinned to Bottom Right --- */
+        /* --- Navigation Desktop (Pinned to Image) --- */
         .nav-container {
             position: absolute;
             bottom: 0;
             right: 0;
+            z-index: 10;
         }
 
         .nav-menu {
@@ -78,18 +77,50 @@
             text-shadow: 1px 1px 5px rgba(255,255,255,0.8);
         }
 
-        .nav-menu a:hover {
-            color: var(--gold);
-        }
+        .nav-menu a:hover { color: var(--gold); }
+        .btn-support { border: 1px solid #000; padding: 4px 10px; }
 
-        .btn-support {
-            border: 1px solid #000;
-            padding: 4px 10px;
+        /* --- Mobile Styles --- */
+        .menu-toggle { display: none; }
+
+        @media (max-width: 768px) {
+            /* Reset banner for mobile */
+            .banner-container { overflow: visible; }
+            
+            /* Move nav container below image on mobile for stability */
+            .nav-container {
+                position: relative;
+                width: 100%;
+                background: rgba(255,255,255,0.7); /* Light wash behind toggle */
+                text-align: center;
+            }
+
+            .menu-toggle { 
+                display: inline-block; 
+                background: #000; 
+                padding: 10px;
+                border: none;
+                cursor: pointer;
+                margin: 10px auto;
+            }
+            .menu-toggle span { display: block; width: 22px; height: 2px; background: white; margin: 5px 0; }
+
+            .nav-menu {
+                display: none;
+                flex-direction: column;
+                width: 100%;
+                padding: 20px 0;
+                gap: 15px;
+                align-items: center;
+            }
+            
+            .nav-menu.active { display: flex; }
+            .nav-menu li { margin: 5px 0; }
+            .nav-menu a { text-shadow: none; } /* Clearer on mobile white bg */
         }
 
         /* --- Content Area --- */
         main { padding: 0 20px; }
-
         h2 { 
             border-bottom: 1px solid var(--navy); 
             padding-bottom: 10px; 
@@ -98,34 +129,4 @@
             color: var(--navy);
             letter-spacing: 1px;
         }
-
-        ul#release-list { list-style: none; padding: 0; }
-        ul#release-list li { padding: 15px 0; border-bottom: 1px solid #eee; }
-
-        /* --- Footer --- */
-        footer { margin-top: 80px; padding: 20px; border-top: 1px solid #ddd; }
-        .footer-content { display: flex; flex-direction: column; align-items: flex-end; }
-        .footer-logo { width: 160px; height: auto; margin-bottom: 15px; }
-        .footer-content p { text-align: right; font-size: 0.8rem; text-transform: uppercase; color: #666; }
-
-        /* --- Mobile Styles --- */
-        .menu-toggle { display: none; }
-
-        @media (max-width: 768px) {
-            .menu-toggle { 
-                display: block; 
-                background: #000; 
-                padding: 10px;
-                border: none;
-                cursor: pointer;
-                margin: 10px;
-                float: right; /* Keeps toggle on the right */
-            }
-            .menu-toggle span { display: block; width: 22px; height: 2px; background: white; margin: 5px 0; }
-
-            .nav-menu {
-                display: none;
-                flex-direction: column;
-                position: absolute;
-                bottom: 100%;
-                left
+        ul#release-list
