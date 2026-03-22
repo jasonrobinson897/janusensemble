@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Support | Jason Robinson's Janus Ensemble, Inc</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Jost:wght@400;700;800&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="style.css">
+
+    <style>
+        /* Specific styles for the Support page buttons */
+        .donation-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+            margin-top: 30px;
+        }
+
+        .donation-method {
+            background: rgba(255, 255, 255, 0.5);
+            padding: 30px;
+            border-radius: 8px;
+            text-align: center;
+            border: 1px solid rgba(0,0,0,0.05);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .paypal-button {
+            background: #0070ba;
+            color: #ffffff;
+            padding: 18px 35px;
+            text-decoration: none;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            border-radius: 4px;
+            transition: background 0.3s ease;
+            display: inline-block;
+            margin-bottom: 10px;
+        }
+
+        .paypal-button:hover {
+            background: #005ea6;
+            color: #fff;
+        }
+
+        .venmo-link {
+            color: var(--navy);
+            font-weight: 700;
+            text-decoration: none;
+            margin-top: 10px;
+        }
+
+        .venmo-qr {
+            max-width: 150px;
+            height: auto;
+            margin-bottom: 15px;
+            border: 5px solid #fff;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+        }
+
+        @media (max-width: 600px) {
+            .donation-grid { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+
+<header class="banner-outer">
+    <div class="banner-inner">
+        <a href="index.html">
+            <img src="https://jasonrobinson897.github.io/janusensemble/headerlogo_image.png" alt="Janus Ensemble Logo" class="header-logo">
+        </a>
+
+        <nav class="nav-container">
+            <button class="menu-toggle" id="mobile-menu-button" aria-label="Toggle Menu">
+                <span></span><span></span><span></span>
+            </button>
+            <ul class="nav-menu" id="nav-list">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="contact.html">Contact</a></li>
+                <li><a href="support.html" class="btn-support">Support</a></li>
+            </ul>
+        </nav>
+    </div>
+</header>
+
+<main>
+    <section class="content-card">
+        <h2>Support Our Vision</h2>
+        <p>Jason Robinson’s Janus Ensemble, Inc. is a non-profit 501(c)(3) organization. Your contributions directly fund the creation of new music, live performances, and educational outreach. Every donation helps us provide equitable wages for the musicians and cultural workers who bring this music to life.</p>
+    </section>
+
+    <div class="donation-grid">
+        <div class="donation-method">
+            <img src="https://www.paypalobjects.com/webstatic/mktg/logo/pp_cc_mark_111x69.jpg" alt="PayPal and Credit Cards" style="margin-bottom: 20px;">
+            <h3>Donate via PayPal</h3>
+            <p style="font-size: 0.9rem; margin-bottom: 20px;">Securely give via Credit Card, Debit, or your PayPal account.</p>
+            
+            <a href="#" class="paypal-button">Donate Now</a>
+        </div>
+
+        <div class="donation-method">
+            <img src="venmo_qr.png" alt="Venmo QR Code" class="venmo-qr">
+            <h3>Venmo</h3>
+            <p style="font-size: 0.9rem; margin-bottom: 5px;">Scan the code or click below:</p>
+            
+            <a href="https://venmo.com/u/YourHandle" class="venmo-link">@YourHandle</a>
+        </div>
+    </div>
+
+    <section class="content-card" style="margin-top: 30px;">
+        <h3>Other Ways to Give</h3>
+        <p>If you prefer to donate via check or are interested in corporate sponsorship opportunities, please reach out to us directly through our <a href="contact.html" style="color: var(--navy); font-weight: 700;">contact page</a>.</p>
+    </section>
+</main>
+
+<footer>
+    <div class="footer-content">
+        <img src="https://jasonrobinson897.github.io/janusensemble/footer_image.png" alt="Janus Ensemble Inc" class="footer-logo
