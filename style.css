@@ -9,7 +9,7 @@ main a:visited,
 main a:active {
     color: #000000 !important;         
     text-decoration: underline !important; 
-    text-decoration-thickness: 2px !important; 
+    text-decoration-thickness: 1px !important; 
     text-underline-offset: 3px;     
     transition: color 0.3s ease;
 }
@@ -18,7 +18,7 @@ main a:active {
 main a:hover {
     color: #666666 !important;         
     text-decoration: underline !important; 
-    text-decoration-thickness: 3px !important; 
+    text-decoration-thickness: 2px !important; 
 }
 
 :root {
