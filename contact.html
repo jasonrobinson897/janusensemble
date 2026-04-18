@@ -1,21 +1,122 @@
-<form id="contact-form" action="https://formspree.io/f/mgonbjoo" method="POST" class="contact-form">
-    <div class="form-group">
-        <label for="name">Name</label>
-        <input type="text" id="name" name="name" required>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact | Jason Robinson's Janus Ensemble, Inc</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Jost:wght@400;700;800&display=swap" rel="stylesheet">
+    
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
+    <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
+    
+    <link rel="stylesheet" href="style.css">
+
+    <style>
+        /* Form-specific styling */
+        .contact-form {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .form-group { display: flex; flex-direction: column; }
+
+        label { 
+            font-weight: 700; 
+            text-transform: uppercase; 
+            font-size: 0.75rem; 
+            margin-bottom: 5px; 
+            color: var(--navy);
+        }
+
+        input, textarea {
+            padding: 12px;
+            border: 1px solid #ccc;
+            font-family: 'Jost', sans-serif;
+            background: rgba(255,255,255,0.5);
+            border-radius: 4px;
+            font-size: 1rem;
+        }
+
+        button[type="submit"] {
+            background: #000; /* Matching the black banner theme */
+            color: white;
+            padding: 15px;
+            border: none;
+            text-transform: uppercase;
+            font-weight: 700;
+            letter-spacing: 2px;
+            cursor: pointer;
+            transition: background 0.3s;
+            border-radius: 4px;
+            margin-top: 10px;
+        }
+
+        button[type="submit"]:hover { 
+            background: var(--gold); 
+        }
+    </style>
+</head>
+<body>
+
+<header class="banner-outer">
+    <div class="banner-inner">
+        <a href="index.html">
+            <img src="https://jasonrobinson897.github.io/janusensemble/headerlogo_image.png" alt="Janus Ensemble Logo" class="header-logo">
+        </a>
+
+        <nav class="nav-container">
+            <button class="menu-toggle" id="mobile-menu-button" aria-label="Toggle Menu">
+                <span></span><span></span><span></span>
+            </button>
+            <ul class="nav-menu" id="nav-list">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="contact.html">Contact</a></li>
+                <li><a href="support.html" class="btn-support">Support</a></li>
+            </ul>
+        </nav>
     </div>
-    <div class="form-group">
-        <label for="email">Email</label>
-        <input type="email" id="email" name="_replyto" required>
+</header>
+
+<main>
+    <div class="content-card">
+        <h2>Contact Us</h2>
+        <p>Please use the form below to get in touch regarding booking, commissions, or general inquiries.</p>
+
+        <form id="contact-form" action="https://formspree.io/f/mgonbjoo" method="POST" class="contact-form">
+            <div class="form-group">
+                <label for="name">Name</label>
+                <input type="text" id="name" name="name" required>
+            </div>
+            <div class="form-group">
+                <label for="email">Email</label>
+                <input type="email" id="email" name="_replyto" required>
+            </div>
+            <div class="form-group">
+                <label for="message">Message</label>
+                <textarea id="message" name="message" rows="6" required></textarea>
+            </div>
+            <button type="submit">Send Message</button>
+        </form>
     </div>
-    <div class="form-group">
-        <label for="message">Message</label>
-        <textarea id="message" name="message" rows="6" required></textarea>
+</main>
+
+<footer>
+    <div class="footer-content">
+        <img src="https://jasonrobinson897.github.io/janusensemble/footer_image.png" alt="Janus Ensemble Inc" class="footer-logo">
+        <p>&copy; <script>document.write(new Date().getFullYear());</script></p>
     </div>
-    <button type="submit" id="submit-button">Send Message</button>
-    <p id="status"></p> </form>
+</footer>
 
 <script>
-    // 1. Mobile menu toggle (Keeping your existing logic)
+    // 1. Mobile menu toggle
     const toggle = document.getElementById('mobile-menu-button');
     const menu = document.getElementById('nav-list');
     
@@ -25,36 +126,30 @@
         });
     }
 
-    // 2. Formspree AJAX Logic
-    var form = document.getElementById("contact-form"); // ID matched to your form
+    // 2. Minimal AJAX redirect (Free-tier compatible)
+    var contactForm = document.getElementById("contact-form");
     
-    async function handleSubmit(event) {
-      event.preventDefault();
-      var status = document.getElementById("status");
-      var data = new FormData(event.target);
-      
-      fetch(event.target.action, {
-        method: form.method,
-        body: data,
-        headers: {
-            'Accept': 'application/json'
-        }
-      }).then(response => {
-        if (response.ok) {
-          // Success: Redirect to thanks page
-          window.location.href = "thanks.html"; 
-        } else {
-          response.json().then(data => {
-            if (Object.hasOwn(data, 'errors')) {
-              status.innerHTML = data["errors"].map(error => error["message"]).join(", ");
+    contactForm.addEventListener("submit", function(event) {
+        event.preventDefault(); // Prevents the default Formspree redirect
+        
+        var data = new FormData(event.target);
+        
+        fetch(event.target.action, {
+            method: 'POST',
+            body: data,
+            headers: { 'Accept': 'application/json' }
+        }).then(response => {
+            if (response.ok) {
+                // Success: Redirect to thanks page
+                window.location.href = "thanks.html"; 
             } else {
-              status.innerHTML = "Oops! There was a problem submitting your form";
+                alert("Oops! There was a problem. Please check your email and try again.");
             }
-          })
-        }
-      }).catch(error => {
-        status.innerHTML = "Oops! There was a problem submitting your form";
-      });
-    }
-    form.addEventListener("submit", handleSubmit);
+        }).catch(error => {
+            alert("Oops! Form submission failed.");
+        });
+    });
 </script>
+
+</body>
+</html>
