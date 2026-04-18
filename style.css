@@ -2,17 +2,17 @@
 
 * { box-sizing: border-box; }
 
-/* 1. The default state of the link */
-a {
+/* This targets links ONLY within the <main> section of your body */
+main a {
     color: #000000;         /* Pure Black */
-    text-decoration: none;  /* Removes the default underline (optional) */
-    transition: color 0.3s; /* Makes the color change smooth instead of instant */
+    text-decoration: none;  
+    transition: color 0.3s; 
 }
 
-/* 2. The state when the cursor is over it */
-a:hover {
+/* Hover state for links within <main> */
+main a:hover {
     color: #666666;         /* Slightly Grey */
-    text-decoration: none;  /* Keeps underline off during hover */
+    text-decoration: none;  
 }
 
 :root {
