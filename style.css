@@ -6,14 +6,18 @@
 main a, 
 main a:visited {
     color: #000000;         /* Pure Black */
-    text-decoration: none;  
+    text-decoration: underline; /* Keeps the underline so users know it's a link */
+    text-decoration-thickness: 1px; /* Optional: makes the underline thinner */
+    text-underline-offset: 3px;     /* Optional: adds space between text and underline */
     transition: color 0.3s; 
 }
 
 /* 2. Hover state for links within <main> */
 main a:hover {
     color: #666666;         /* Slightly Grey */
-    text-decoration: none;  
+    text-decoration: underline; /* Keeps the underline so users know it's a link */
+    text-decoration-thickness: 1px; /* Optional: makes the underline thinner */
+    text-underline-offset: 3px;     /* Optional: adds space between text and underline */
 }
 
 :root {
