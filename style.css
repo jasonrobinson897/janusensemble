@@ -2,27 +2,15 @@
 
 * { box-sizing: border-box; }
 
-/* This targets links ONLY within the <main> section of your body */
-main a {
+/* 1. Targets links inside <main> - covers both new and visited links */
+main a, 
+main a:visited {
     color: #000000;         /* Pure Black */
     text-decoration: none;  
     transition: color 0.3s; 
 }
 
-/* Hover state for links within <main> */
-main a:hover {
-    color: #666666;         /* Slightly Grey */
-    text-decoration: none;  
-}
-
-main a, 
-main a:visited {
-    color: #000000;         /* Pure Black even after being clicked */
-    text-decoration: none;  
-    transition: color 0.3s; 
-}
-
-/* Hover state for links within <main> */
+/* 2. Hover state for links within <main> */
 main a:hover {
     color: #666666;         /* Slightly Grey */
     text-decoration: none;  
