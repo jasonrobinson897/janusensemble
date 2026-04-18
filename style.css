@@ -7,7 +7,7 @@ main a,
 main a:visited {
     color: #000000;         /* Pure Black */
     text-decoration: underline; /* Keeps the underline so users know it's a link */
-    text-decoration-thickness: 1px; /* Optional: makes the underline thinner */
+    text-decoration-thickness: 2px; /* Optional: makes the underline thinner */
     text-underline-offset: 3px;     /* Optional: adds space between text and underline */
     transition: color 0.3s; 
 }
@@ -16,7 +16,7 @@ main a:visited {
 main a:hover {
     color: #666666;         /* Slightly Grey */
     text-decoration: underline; /* Keeps the underline so users know it's a link */
-    text-decoration-thickness: 1px; /* Optional: makes the underline thinner */
+    text-decoration-thickness: 3px; /* Optional: makes the underline thinner */
     text-underline-offset: 3px;     /* Optional: adds space between text and underline */
 }
 
