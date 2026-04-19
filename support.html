@@ -79,6 +79,10 @@
 </head>
 <body>
 
+<script 
+  src="https://www.paypal.com/sdk/js?client-id=BAA0q5bfHfBWbUtbwIUh2y-QDMigxFff2mTjvQz3afCAIJl32SGsvd0tcwXpFmCNj2LbUcE7IQhnJUbujo&components=hosted-buttons&enable-funding=venmo&currency=USD">
+</script>
+    
 <header class="banner-outer">
     <div class="banner-inner">
         <a href="index.html">
@@ -103,7 +107,12 @@
     <section class="content-card">
         <h2>Support Our Vision</h2>
         <p>Jason Robinson’s Janus Ensemble, Inc. is a non-profit 501(c)(3) organization. Your contributions directly fund the creation of new music, live performances, and educational outreach. Every donation helps us provide equitable wages for the musicians and cultural workers who bring this music to life.</p>
-
+<div id="paypal-container-EQHN4FS8FR4Y6"></div>
+<script>
+  paypal.HostedButtons({
+    hostedButtonId: "EQHN4FS8FR4Y6",
+  }).render("#paypal-container-EQHN4FS8FR4Y6")
+</script>
 
         <h3>Other Ways to Give</h3>
         <p>Mail: Checks made payable to Jason Robinson's Janus Ensemble, Inc., are happily accepted at:</p>
